@@ -117,11 +117,11 @@ add_action( 'widgets_init', 'the_bountiful_dish_widgets_init' );
  * Enqueue scripts and styles.
  */
 function the_bountiful_dish_scripts() {
-	wp_enqueue_style( 'the-bountiful-dish-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'the-bountiful-dish-style', get_template_directory_uri() . '/assets/css/build/app.min.css' );
 
-	wp_enqueue_script( 'the-bountiful-dish-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'the-bountiful-dish-vendors', get_template_directory_uri() . '/assets/js/build/vendors.min.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'the-bountiful-dish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'the-bountiful-dish-main', get_template_directory_uri() . '/assets/js/build/main.min.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
