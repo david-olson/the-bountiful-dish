@@ -47,6 +47,7 @@ if ( ! function_exists( 'the_bountiful_dish_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'the-bountiful-dish' ),
 		) );
 
+		add_theme_support('menus');
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -79,6 +80,13 @@ if ( ! function_exists( 'the_bountiful_dish_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+		function my_jquery_enqueue() {
+		   wp_deregister_script('jquery');
+		   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js", false, null);
+		   wp_enqueue_script('jquery');
+		}
 	}
 endif;
 add_action( 'after_setup_theme', 'the_bountiful_dish_setup' );
@@ -117,11 +125,13 @@ add_action( 'widgets_init', 'the_bountiful_dish_widgets_init' );
  * Enqueue scripts and styles.
  */
 function the_bountiful_dish_scripts() {
+	wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700');
+
 	wp_enqueue_style( 'the-bountiful-dish-style', get_template_directory_uri() . '/assets/css/build/app.min.css' );
 
-	wp_enqueue_script( 'the-bountiful-dish-vendors', get_template_directory_uri() . '/assets/js/build/vendors.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'the-bountiful-dish-vendors', get_template_directory_uri() . '/assets/js/build/vendors.min.js', array('jquery'), '20151215', true );
 
-	wp_enqueue_script( 'the-bountiful-dish-main', get_template_directory_uri() . '/assets/js/build/main.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'the-bountiful-dish-main', get_template_directory_uri() . '/assets/js/build/main.min.js', array('jquery'), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -161,4 +171,68 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+// Foundation Walker Menu
+
+class F6_DRILL_MENU_WALKER extends Walker_Nav_Menu {
+	function start_lvl(&$output, $depth = 0, $args = array()) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<ul class=\"vertical menu\">\n";
+	}
+}
+
+function f6_drill_menu_fallback($args) {
+	$walker_page = new Walker_Page();
+	$fallback = $walker_page->walk(get_pages(), 0);
+	$fallback = str_replace('children', 'children vertical menu', $fallback);
+	echo '<ul class="vertical medium-horizontal menu align-right" data-responsive-menu="drilldown medium-dropdown" style="width: 100%">'.$fallback.'</ul>';
+}
+
+function get_hero_slider()
+{
+	$args = array(
+		'post_type' => 'hero_slide',
+		'posts_per_page' => 5,
+	);
+	$hero_slider_loop = new WP_Query($args);
+
+	if ($hero_slider_loop->have_posts()) : 
+		while ($hero_slider_loop->have_posts()) : $hero_slider_loop->the_post();
+			get_template_part('template-parts/hero-slider');
+		endwhile;
+	endif; 
+}
+
+function get_featured_meal_slider()
+{
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => 6,
+		'meta_key' => 'featured_post',
+		'meta_value' => true,
+	);
+
+	$featured_meal_loop = new WP_Query($args);
+
+	if ($featured_meal_loop->have_posts()) :
+		while($featured_meal_loop->have_posts()) : $featured_meal_loop->the_post();
+			get_template_part('template-parts/featured-meals');
+		endwhile;
+	endif;
+}
+
+function get_newsletter_signup()
+{
+
+}
+
+function get_meals_teaser($category_slug)
+{
+
+}
+
+function get_testimonials()
+{
+	
 }

@@ -2,6 +2,6 @@
 
 @include foundation-everything;
 
-p {
-	color: black;
-}
+@import 'partials/typography';
+
+@import 'partials/modules';
