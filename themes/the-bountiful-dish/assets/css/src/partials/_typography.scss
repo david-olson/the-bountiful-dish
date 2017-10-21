@@ -1,3 +1,40 @@
 body, html {
 	font-family: 'Dosis';
 }
+
+h1, h2, h3, h4, h5, h6, p, label, input, select, textarea, ul, li, ol {
+	font-family: 'Dosis';
+}
+
+html { font-size: calc(0.75em + 0.75vw); } 
+
+/* setting the max width*/
+ @media screen and (min-width: 50em) {
+  html {
+    font-size: 0.90em;
+  }
+   
+}
+ p{
+ 	font-size: 1rem;
+ } 
+
+ h6 {
+ 	font-size: 1.125rem;
+ }
+
+ h5 {
+ 	font-size: 1.266rem;
+ }
+ h4 {
+ 	font-size: 1.424rem;
+ }
+ h3 {
+ 	font-size: 1.602rem;
+ }
+ h2 {
+ 	font-size: 1.802rem;
+ }
+ h1 {
+ 	font-size: 2.027rem;
+ }

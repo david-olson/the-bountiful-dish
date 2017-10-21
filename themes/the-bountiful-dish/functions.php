@@ -125,7 +125,7 @@ add_action( 'widgets_init', 'the_bountiful_dish_widgets_init' );
  * Enqueue scripts and styles.
  */
 function the_bountiful_dish_scripts() {
-	wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700');
+	wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700|Sacramento');
 
 	wp_enqueue_style( 'the-bountiful-dish-style', get_template_directory_uri() . '/assets/css/build/app.min.css' );
 
@@ -173,6 +173,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
+add_image_size('featured_meal', 300, 200, true);
+
+
+
 // Foundation Walker Menu
 
 class F6_DRILL_MENU_WALKER extends Walker_Nav_Menu {
@@ -189,6 +193,20 @@ function f6_drill_menu_fallback($args) {
 	echo '<ul class="vertical medium-horizontal menu align-right" data-responsive-menu="drilldown medium-dropdown" style="width: 100%">'.$fallback.'</ul>';
 }
 
+function word_count($text, $limit) {
+	if (str_word_count($text, 0) > $limit) {
+		$words = str_word_count($text, 2);
+		$pos = array_keys($words);
+		$text = substr($text, 0, $pos[$limit]);
+		if (substr($text, -1) === '.' || substr($text, -1) === '!' || substr($text, -1) == '?' || substr($text, -1) == ',') {
+
+		} else {
+			$text .= '...';
+		}
+	}
+	return $text;
+}
+
 function get_hero_slider()
 {
 	$args = array(
@@ -202,6 +220,7 @@ function get_hero_slider()
 			get_template_part('template-parts/hero-slider');
 		endwhile;
 	endif; 
+	wp_reset_postdata();
 }
 
 function get_featured_meal_slider()
@@ -220,19 +239,103 @@ function get_featured_meal_slider()
 			get_template_part('template-parts/featured-meals');
 		endwhile;
 	endif;
+	wp_reset_postdata();
 }
 
 function get_newsletter_signup()
 {
-
+	?>
+	<section class="newsletter-signup">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="large-4 cell">
+					<h3>Sign Up For Our Newsletter!</h3>
+				</div>
+				<div class="large-5 cell">
+					<input type="text" name="email" placeholder="Your Email">
+				</div>
+				<div class="large-3 cell">
+					<input type="submit" class="button expanded" value="Sign Up">
+				</div>
+			</div>
+		</div>
+	</section>
+	<?
 }
 
 function get_meals_teaser($category_slug)
 {
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => 4,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'slug',
+				'terms' => $category_slug,
+				'operator' => 'IN',
+			),
+		),
+	);
 
+	$teaser_query = new WP_Query($args);
+
+	$term = get_term_by('slug', $category_slug, 'product_cat');
+
+	if ($teaser_query->have_posts()) : 
+		echo '<section class="meals-teaser giant-margin teaser-'.$category_slug.'">'; 
+		echo '<div class="grid-container">';
+		echo '<div class="grid-x grid-padding-x">';
+		echo '<div class="auto cell">';
+		echo '<h3 class="upper no-margin">'.$term->name.'</h3>';
+		echo '</div>';
+		echo '<div class="auto cell align-self-right text-right">';
+		echo '<a class="upper gray no-margin" href="/menu/category/'.$term->slug.'">View All &gt;</a>';
+		echo '</div>';
+		echo '<div class="large-12 cell"><hr class="small-margin"></div>';
+		echo '</div>';
+		echo '<div class="grid-x grid-padding-x large-up-4 medium-up-2 large-margin">';
+		while($teaser_query->have_posts()) : $teaser_query->the_post();
+			get_template_part('template-parts/meals-teaser');
+		endwhile; 
+		echo '</div>';
+		echo '</div>';
+		echo '</section>';
+	endif; 
+	wp_reset_postdata();
 }
 
 function get_testimonials()
 {
-	
+	$args = array(
+		'post_type' => 'testimonial',
+		'posts_per_page' => 4,
+	);
+
+	$testimonial_query = new WP_Query($args);
+
+	if ($testimonial_query->have_posts()) :?>
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="medium-8 cell">
+					<div class="testimonial-slider">
+						<?php while($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
+							<?php get_template_part('template-parts/testimonial-slider'); ?>
+						<?php endwhile; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif;
+	wp_reset_postdata();
 }
+
+// 
+// Woocommerce Stuff
+// 
+
+function action_woocommerce_before_shop_loop_item() {
+	echo 'image?';
+}
+
+add_action( 'woocommerce_before_shop_loop_item', 'action_woocommerce_before_shop_loop_item', 10, 0); 

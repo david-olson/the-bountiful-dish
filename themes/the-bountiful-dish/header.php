@@ -27,7 +27,7 @@
 	<div data-sticky-container>
 		<header class="header sticky" data-sticky data-margin-top="0" id="header">
 			<div class="grid-container">
-				<div class="grid-x grid-padding-x">
+				<div class="grid-x grid-padding-x align-middle">
 					<div class="large-2 cell">
 						<a href="/" alt="The Bountiful Dish"><?php get_template_part('assets/img/logo'); ?></a>
 					</div>
