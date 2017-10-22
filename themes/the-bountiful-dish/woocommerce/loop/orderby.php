@@ -22,8 +22,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="grid-container">
-	<div class="grid-x grid-padding-x">
-		<div class="large-12 cell">
+	<div class="grid-x grid-padding-x btd-orderby align-middle">
+		<div class="large-6 cell">
+			<?php echo do_shortcode('[wcas-search-form]'); ?>
+		</div>
+		<div class="large-2 cell text-right">
+			Sort By:
+		</div>
+		<div class="large-4 cell">
 			<form class="woocommerce-ordering" method="get">
 				<select name="orderby" class="orderby">
 					<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>

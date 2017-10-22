@@ -109,7 +109,7 @@
 
 		<?php get_newsletter_signup(); ?>
 
-		<?php get_meals_teaser('lunch'); ?>
+		<?php get_meals_teaser('lunch-dinner'); ?>
 
 		<?php get_meals_teaser('quick-and-easy-lunches'); ?>
 
@@ -170,7 +170,7 @@
 
 		<?php get_meals_teaser('new'); ?>
 
-		<?php get_meals_teaser('catering'); ?>
+		<?php get_meals_teaser('sides'); ?>
 
 		<section class="testimonials">
 			<?php get_testimonials(); ?>

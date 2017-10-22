@@ -81,7 +81,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<a class="gray upper" href="<?php the_permalink(); ?>">More Info</a>
 		</div>
 		<div class="auto cell">
-			<a href="/menu/?add-to-cart=<?php the_ID(); ?>" data-quantity="1" data-product_id="<?php the_ID(); ?>" class="button alternate ajax_add_to_cart add_to_cart_button no-margin">Add to Cart</a>
+			<a href="/menu/?add-to-cart=<?php the_ID(); ?>" data-quantity="1" data-product_id="<?php the_ID(); ?>" class="button alternate ajax_add_to_cart add_to_cart_button no-margin expanded">Add to Cart</a>
 		</div>
 	</div>
 	</article>

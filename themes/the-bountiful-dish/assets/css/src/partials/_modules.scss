@@ -47,6 +47,55 @@ $cream: #FFF6DF;
 			background-color: darken($light-blue, 10%);
 		}
 	}
+	&.loading {
+		position: relative;
+		&:after {
+			content: '';
+			width: 20px;
+			height: 20px;
+			border-radius: 25px;
+			border: 4px solid lighten($teal, 20%);
+			border-top: 4px solid $teal;
+			position: absolute;
+			right: 25px;
+			top: 50%;
+			transform: translateY(-50%);
+			animation: spin 2s linear infinite;
+		}
+	}
+
+	&.added {
+		position: relative;
+		&:after {
+			content: 'Added!';
+			position: absolute;
+			font-size: 0.75rem;
+			padding-left: 6px;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			color: lighten($teal, 20%);
+			animation: fade-out 1s 3s 1 ease-out forwards;
+		}
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: translateY(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateY(-50%) rotate(360deg);
+	}
 }
 
 .no-margin {
@@ -61,8 +110,20 @@ $cream: #FFF6DF;
 	margin: 2*$global-margin 0;
 }
 
+.margin-bottom {
+	margin-bottom: $global-margin;
+}
+
+.large-margin-bottom {
+	margin-bottom: 2*$global-margin;	
+} 
+
 .giant-margin {
 	margin: 4*$global-margin 0;
+}
+
+.round {
+	border-radius: 50%;
 }
 
 .green {
@@ -101,8 +162,13 @@ $cream: #FFF6DF;
 			position: relative;
 			z-index: 2;
 		}
-		h1 {
+		h1, h2 {
 			padding: 5*$global-padding;
+			position: relative;
+			z-index: 4;
+			&.script {
+				font-size: 5rem;
+			}
 		}
 		&:after {
 			content: '';
@@ -137,6 +203,48 @@ header.header {
 				color: $teal;
 				&.login {
 					color: $dark-gray;
+				}
+				&.username {
+					color: $dark-gray;
+					transition: color ease-out 0.25s;
+					&:before {
+						content: '';
+						display: inline-block;
+						height: 12px;
+						width: 12px;
+						margin-right: 10px;
+						background-image: url('../../img/icon-user.svg');
+						background-position: center center;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+					&:after {
+						display: none;
+					}
+					&:hover {
+						color: $teal;
+					}
+				}
+				&.cart {
+					color: $dark-gray;
+					transition: color ease-out 0.25s;
+					&:before {
+						content: '';
+						display: inline-block;
+						height: 12px;
+						width: 14px;
+						margin-right: 10px;
+						background-image: url('../../img/icon-cart.svg');
+						background-position: center center;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+					&:after {
+						display: none;
+					}
+					&:hover {
+						color: $teal;
+					}
 				}
 				&:after {
 					position: absolute;
@@ -545,7 +653,7 @@ section.testimonials {
 
 section.btd-product-container {
 	background-color: #F1F1F1;
-	padding: 4*$global-padding 0;
+	padding: $global-padding 0;
 }
 
 .btd-sorting {
@@ -564,6 +672,73 @@ section.btd-product-container {
 	}
 	&:after {
 		right: -50px;
+	}
+	ul.filter-menu {
+		padding: 20px 0;
+		margin-bottom: 0;
+		li {
+			position: relative;
+			margin-bottom: 0;
+			a {
+				color: $red;
+				font-weight: 800;
+				margin-bottom: 0;
+				margin-top: 5px;
+				&:after {
+					display: block;
+					content: '';
+					width: 100%;
+					height: 2px;
+					background-color: $red;
+					margin: 3px auto;
+					transform: scaleX(0);
+					transition: transform ease-out 0.25s;
+				}
+				&:hover {
+					&:after {
+						transform: scaleX(1);
+					}
+				}
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				border-left: 1px solid $medium-gray;
+				height: 100%;
+			}
+			&:last-of-type {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.btd-orderby {
+	margin-bottom: 2*$global-margin;
+	.dgwt-wcas-sf-wrapp {
+		background: rgba($white, 0);
+	}
+	input#dgwt-wcas-search {
+		background: rgba($white, 0);
+		box-shadow: 0;
+		border: 0;
+		border-bottom: 2px solid $medium-gray;
+		border-radius: 0;
+		&::placeholder {
+			font-family: 'Dosis';
+			font-style: normal;
+			font-weight: bold;
+		}
+	}
+	select.orderby {
+		background-color: rgba($white, 0);
+		border: 0;
+		box-shadow: 0;
+		margin-bottom: 0;
+		border-bottom: 2px solid $medium-gray;
 	}
 }
 
@@ -585,5 +760,19 @@ section.btd-product-container {
 		p {
 			margin: 2*$global-margin 0;
 		}
+		a.added_to_cart {
+			display: block;
+			text-align: center;
+			margin: 2px auto;
+			color: $dark-gray;
+		}
 	}
+}
+
+.mission-hero {
+	background-image: url('../../img/bg-mission-hero.jpg');
+}
+
+.ingredients-hero {
+	background-image: url('../../img/bg-ingredients.jpg');
 }

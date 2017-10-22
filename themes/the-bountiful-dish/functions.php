@@ -339,3 +339,17 @@ function action_woocommerce_before_shop_loop_item() {
 }
 
 add_action( 'woocommerce_before_shop_loop_item', 'action_woocommerce_before_shop_loop_item', 10, 0); 
+
+// Ensure cart contents update when adjax add happens
+
+function header_add_to_cart($fragments) {
+	ob_start();
+	$count = WC()->cart->cart_contents_count;
+
+	?>
+	<a class="cart" href="/cart"><?php echo $count; ?></a>
+	<?php 
+	$fragments['a.cart'] = ob_get_clean();
+	return $fragments;
+}
+add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart');
