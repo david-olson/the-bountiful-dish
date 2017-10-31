@@ -46,10 +46,16 @@
 					</div>
 					<?php if (is_user_logged_in()) : ?>
 						<div class="large-3 cell">
-							<ul class="menu">
+							<ul class="menu dropdown" data-dropdown-menu>
 								<?php $current_user = wp_get_current_user(); ?>
 								<?php //var_dump($current_user); ?>
-								<li><a class="username" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><?php echo $current_user->data->display_name; ?></a></li>
+								<li>
+									<a class="username" href="#"><?php echo $current_user->data->display_name; ?></a>
+									<ul class="menu">
+										<li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Account</a></li>
+										<li><a href="#">Logout</a></li>
+									</ul>
+								</li>
 								<?php $count = WC()->cart->cart_contents_count; ?>
 								<li><a class="cart" href="/cart"><?php echo $count; ?></a></li>
 							</ul>
@@ -59,7 +65,7 @@
 							<ul class="menu">
 								<li><a class="login" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Log In</a></li>
 								<li>
-									<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="button small">Sign Up</a>
+									<a href="/register" class="button small">Sign Up</a>
 								</li>
 								<?php $count = WC()->cart->cart_contents_count; ?>
 								<li><a class="cart" href="/cart"><?php echo $count; ?></a></li>

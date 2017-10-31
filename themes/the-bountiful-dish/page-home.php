@@ -141,27 +141,38 @@
 						<a class="professionals" href="/professionals">
 							<h2>Professionals on the Go</h2>
 							<p>Meals to fuel your brain.</p>
+							<button class="button outline" type="button">More Info</button>
 						</a>
 					</div>
 					<div class="cell">
 						<a class="athletes" href="/athletes"><h2>Athletes &amp; Performance</h2>
-							<p>Nourish your regiment.</p></a>
+							<p>Nourish your regiment.</p>
+							<button class="button outline" type="button">More Info</button>
+						</a>
 					</div>
 					<div class="cell">
 						<a class="beach" href="/beach-bound"><h2>Beach Bound</h2>
-							<p>Easy snacks to keep you moving.</p></a>
+							<p>Easy snacks to keep you moving.</p>
+							<button class="button outline" type="button">More Info</button>
+						</a>
 					</div>
 					<div class="cell">
 						<a class="home" href="/busy-homes"><h2>The Busy Healthy Home</h2>
-							<p>Take a load off moms &amp; busy families.</p></a>
+							<p>Take a load off moms &amp; busy families.</p>
+							<button class="button outline" type="button">More Info</button>
+						</a>
 					</div>
 					<div class="cell">
 						<a class="dorm" href="/dorm-room-delivery"><h2>Dorm Room Delivery</h2>
-							<p>Power up your studies.</p></a>
+							<p>Power up your studies.</p>
+							<button class="button outline" type="button">More Info</button>
+						</a>
 					</div>
 					<div class="cell">
 						<a class="wellness" href="/wellness"><h2>Wellness Minded</h2>
-							<p>Conscious meals for the health minded.</p></a>
+							<p>Conscious meals for the health minded.</p>
+							<button class="button outline" type="button">More Info</button>
+						</a>
 					</div>
 				</div>
 			</div>
