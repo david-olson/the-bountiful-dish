@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php wc_print_notices(); ?>
+
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 <section class="sign-up-form">
@@ -30,8 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		
 		<div class="grid-x grid-padding-x align-center">
 			<div class="medium-5 cell form-holder large-margin">
+
 						<h2 class="gray upper large-margin"><?php _e( 'Login', 'woocommerce' ); ?></h2>
-				
+						<?php wc_print_notices(); ?>
 						<form class="woocommerce-form woocommerce-form-login login" method="post">
 				
 							<?php do_action( 'woocommerce_login_form_start' ); ?>

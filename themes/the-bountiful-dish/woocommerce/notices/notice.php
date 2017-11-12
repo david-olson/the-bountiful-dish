@@ -27,5 +27,10 @@ if ( ! $messages ) {
 ?>
 
 <?php foreach ( $messages as $message ) : ?>
-	<div class="woocommerce-info"><?php echo wp_kses_post( $message ); ?></div>
+	<div class="callout primary" data-closable>
+		<div class="woocommerce-info"><?php echo wp_kses_post( $message ); ?></div>
+		<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+	    	<span aria-hidden="true">&times;</span>
+  		</button>
+	</div>
 <?php endforeach; ?>

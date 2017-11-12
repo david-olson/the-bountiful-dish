@@ -37,6 +37,60 @@ $cream: #FFF6DF;
 	display: none;
 }
 
+// Tables
+table {
+	thead {
+		background-color: $teal;
+		border: 0;
+		th {
+			color: $white;
+			border: 0;
+		}
+	}
+	tbody {
+		border: 0;
+		tr {
+			border-bottom: 1px solid $light-gray;
+			&:nth-of-type(even), &:nth-of-type(odd) {
+				border-bottom: 1px solid $light-gray;
+			}
+			&:last-of-type {
+				border-bottom: 0;
+			}
+			&:hover {
+				td {
+					background-color: lighten($light-gray, 5%);
+				}
+			}
+			td {
+				background-color: $white;
+				padding: $global-padding 0.5rem;
+				transition: background-color ease-out 0.25s;
+			}
+		}
+	}
+	tfoot {
+		border: 0;
+		background-color: $white;
+		border-top: 3px solid $teal;
+		tr {
+			border-bottom: 1px solid $light-gray;
+			th, td {
+				transition: background-color ease-out 0.25s;
+			}
+			&:hover {
+				th, td {
+					background-color: lighten($light-gray, 5%);
+				}
+			}
+			&:last-of-type {
+				border-bottom: 0;
+				border-top: 3px solid $black;
+			}
+		}
+	}
+}
+
 .button {
 	background-color: $teal;
 	font-weight: 700;
@@ -133,6 +187,20 @@ $cream: #FFF6DF;
 
 .giant-margin {
 	margin: 4*$global-margin 0;
+}
+
+.small-pad {
+	padding: $global-padding/2 0;
+}
+.medium-pad {
+	padding: $global-padding 0;
+}
+
+.large-pad {
+	padding: 2*$global-padding 0;
+}
+.giant-pad {
+	padding: 4*$global-padding 0;
 }
 
 .round {
@@ -295,10 +363,11 @@ header.header {
 			ul.menu {
 				padding: $global-margin 0;
 				li {
-					padding: 0;
+					padding: 0 10px;
 					margin: 0;
 					a {
-						padding: 0 10px;
+						padding: 10px 0;
+						border-bottom: 1px solid $light-gray;
 						margin: 0;
 						&:after, &:before {
 							display: none;
@@ -312,6 +381,11 @@ header.header {
 							height: 1px;
 							transform: scaleY(1);
 							background-color: $light-gray;
+						}
+					}
+					&:last-of-type {
+						a {
+							border-bottom: 0;
 						}
 					}
 				}
@@ -813,7 +887,7 @@ section.btd-product-container {
 	}
 }
 
-.mission-hero {
+.mission-hero, .blog-hero {
 	background-image: url('../../img/bg-mission-hero.jpg');
 }
 
@@ -832,6 +906,125 @@ section.sign-up-form {
 		box-shadow: 0px 3px 3px 3px rgba(0,0,0,0.1);
 		padding: 2*$global-padding;
 	}
+}
+div.callout {
+	.woocommerce-info, .woocommerce-noreviews, p.no-comments {
+		background-color: rgba($white, 0);
+	}	
+}
+
+
+ul.woocommerce-error {
+	list-style: none;
+	background-color: rgba($white, 0);
+	padding: 0;
+	margin: 0;
+	margin-bottom: $global-margin;
+	li {
+		color: $red;
+		padding-bottom: 5px;
+		border-bottom: 1px solid $light-gray;
+		&:last-of-type {
+			border-bottom: 0;
+		}
+	}
+}
+
+section.my-account-navigation {
+	background-color: $teal;
+	border-bottom: 5px solid darken($teal, 10%);
+	margin-bottom: 2*$global-margin;
+	ul.menu {
+		li {
+			&.is-active a{
+				background-color: darken($teal, 10%);
+			}
+			a {
+				color: $white;
+				transition: background-color ease-out 0.25s;
+				&:hover {
+					background-color: darken($teal, 8%);
+				}
+			}
+		}
+	}
+}
+
+body.woocommerce-view-order {
+	section.my-account-navigation {
+		ul.menu {
+			li.woocommerce-MyAccount-navigation-link--orders {
+				a {
+					background-color: darken($teal, 10%);
+				}
+			}
+		}
+	}
+}
+
+mark.order-number, mark.order-date, mark.order-status {
+	background-color: rgba($white, 0);
+	font-weight: bold;
+}
+
+table.woocommerce-orders-table {
+	a.button {
+		margin-right: $global-margin/2;
+	}
+}
+
+// Cart Page
+
+.shop_table {
+	td.product-quantity {
+		max-width: 50px;
+		.qty {
+			max-width: 50px;
+		}
+	}
+	td.product-subtotal, th.product-subtotal {
+		text-align: right;
+	}
+	tfoot {
+		td {
+			text-align: right;
+		}
+	}
+}
+
+div.cart_totals {
+	table {
+		tr {
+			&:last-of-type {
+				border-top: 3px solid $black;
+			}
+			td, th {
+				background-color: $white;
+			}
+			td {
+				text-align: right;
+			}
+		}
+	}
+}
+.product-total {
+	text-align: right;
+}
+div.woocommerce-checkout-review-order {
+	.product-total {
+		text-align: right;
+	}
+	tfoot {
+		td {
+			text-align: right;
+		}
+	}
+}
+
+ul.payment_methods {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 // FAQs Page
@@ -865,4 +1058,12 @@ ul.accordion {
 			}
 		}
 	}
+}
+
+
+// Single Products
+
+section.related.products, section.up-sells {
+	padding: 2*$global-padding 0;
+	background-color: lighten($light-gray, 6%);
 }

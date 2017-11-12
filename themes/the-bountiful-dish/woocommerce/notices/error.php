@@ -25,8 +25,13 @@ if ( ! $messages ) {
 }
 
 ?>
-<ul class="woocommerce-error">
-	<?php foreach ( $messages as $message ) : ?>
-		<li><?php echo wp_kses_post( $message ); ?></li>
-	<?php endforeach; ?>
-</ul>
+<div class="callout alert" data-closable>
+	<ul class="woocommerce-error">
+		<?php foreach ( $messages as $message ) : ?>
+			<li><?php echo wp_kses_post( $message ); ?></li>
+		<?php endforeach; ?>
+	</ul>
+	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+	    <span aria-hidden="true">&times;</span>
+  	</button>
+</div>

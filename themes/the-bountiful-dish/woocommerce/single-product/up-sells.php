@@ -24,23 +24,26 @@ if ( $upsells ) : ?>
 
 	<section class="up-sells upsells products">
 
-		<h2><?php esc_html_e( 'You may also like&hellip;', 'woocommerce' ) ?></h2>
-
-		<?php woocommerce_product_loop_start(); ?>
-
-			<?php foreach ( $upsells as $upsell ) : ?>
-
-				<?php
-				 	$post_object = get_post( $upsell->get_id() );
-
-					setup_postdata( $GLOBALS['post'] =& $post_object );
-
-					wc_get_template_part( 'content', 'product' ); ?>
-
-			<?php endforeach; ?>
-
-		<?php woocommerce_product_loop_end(); ?>
-
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 cell text-center">
+					<h2><?php esc_html_e( 'You May Also Like', 'woocommerce' ) ?></h2>
+				</div>
+				<?php woocommerce_product_loop_start(); ?>
+				
+					<?php foreach ( $upsells as $upsell ) : ?>
+				
+						<?php
+						 	$post_object = get_post( $upsell->get_id() );
+				
+							setup_postdata( $GLOBALS['post'] =& $post_object );
+				
+							wc_get_template_part( 'content', 'product' ); ?>
+				
+					<?php endforeach; ?>
+				
+				<?php woocommerce_product_loop_end(); ?></div>
+		</div>
 	</section>
 
 <?php endif;

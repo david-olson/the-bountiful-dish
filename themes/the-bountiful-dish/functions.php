@@ -353,3 +353,9 @@ function header_add_to_cart($fragments) {
 	return $fragments;
 }
 add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart');
+
+// After registration, redirect to my account page
+function custom_registration_redirect() {
+    return home_url('/my-account');
+}
+add_action('woocommerce_registration_redirect', 'custom_registration_redirect', 2);

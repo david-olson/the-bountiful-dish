@@ -24,23 +24,26 @@ if ( $related_products ) : ?>
 
 	<section class="related products">
 
-		<h2><?php esc_html_e( 'Related products', 'woocommerce' ); ?></h2>
-
-		<?php woocommerce_product_loop_start(); ?>
-
-			<?php foreach ( $related_products as $related_product ) : ?>
-
-				<?php
-				 	$post_object = get_post( $related_product->get_id() );
-
-					setup_postdata( $GLOBALS['post'] =& $post_object );
-
-					wc_get_template_part( 'content', 'product' ); ?>
-
-			<?php endforeach; ?>
-
-		<?php woocommerce_product_loop_end(); ?>
-
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+				<div class="large-12 cell text-center">
+					<h2><?php esc_html_e( 'Similar Meals', 'woocommerce' ); ?></h2>
+				</div>
+				<?php woocommerce_product_loop_start(); ?>
+				
+					<?php foreach ( $related_products as $related_product ) : ?>
+				
+						<?php
+						 	$post_object = get_post( $related_product->get_id() );
+				
+							setup_postdata( $GLOBALS['post'] =& $post_object );
+				
+							wc_get_template_part( 'content', 'product' ); ?>
+				
+					<?php endforeach; ?>
+				
+				<?php woocommerce_product_loop_end(); ?></div>
+		</div>
 	</section>
 
 <?php endif;

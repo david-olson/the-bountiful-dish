@@ -19,49 +19,69 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-wc_print_notices();
-
-do_action( 'woocommerce_before_checkout_form', $checkout );
-
-// If checkout registration is disabled and not logged in, the user cannot checkout
-if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
-	return;
-}
-
 ?>
+<section class="hero interior mission-hero text-center">
+	<h1 class="script white">checkout</h1>
+</section>
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 cell">
+			<?php wc_print_notices();
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+			do_action( 'woocommerce_before_checkout_form', $checkout );
 
-	<?php if ( $checkout->get_checkout_fields() ) : ?>
+			// If checkout registration is disabled and not logged in, the user cannot checkout
+			if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
+				echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
+				return;
+			}
 
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+			?>
+			
+					<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+						<div class="grid-x grid-padding-x">
+							<?php if ( $checkout->get_checkout_fields() ) : ?>
+							
+								<div class="large-6 cell">
 
-		<div class="col2-set" id="customer_details">
-			<div class="col-1">
-				<?php do_action( 'woocommerce_checkout_billing' ); ?>
+									<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+
+									<div class="col2-set" id="customer_details">
+										<div class="col-1">
+											<?php do_action( 'woocommerce_checkout_billing' ); ?>
+										</div>
+
+										<div class="col-2">
+											<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+										</div>
+									</div>
+
+									<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+								</div>
+
+							<?php endif; ?>
+							<div class="large-6 cell">
+								<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
+
+								<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+
+								<div id="order_review" class="woocommerce-checkout-review-order">
+									<?php do_action( 'woocommerce_checkout_order_review' ); ?>
+								</div>
+
+								<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+							</div>
+
+						
+
+					</form>
+					<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
 			</div>
 
-			<div class="col-2">
-				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
-			</div>
+			
+
+			
 		</div>
-
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
-
-	<?php endif; ?>
-
-	<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
-
-	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 	</div>
+</div>
 
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-
-</form>
-
-<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

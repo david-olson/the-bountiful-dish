@@ -7,7 +7,7 @@
 				
 				
 						<h2 class="large-margin upper gray"><?php _e( 'Register', 'woocommerce' ); ?></h2>
-				
+						<?php wc_print_notices(); ?>
 						<form method="post" class="register">
 				
 							<?php do_action( 'woocommerce_register_form_start' ); ?>
