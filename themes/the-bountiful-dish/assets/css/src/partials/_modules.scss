@@ -23,6 +23,8 @@
 // 
 // FAQs Page
 // -- Tabs
+// 
+// Blog
 
 // Colors
 $teal: #376363;
@@ -35,6 +37,10 @@ $cream: #FFF6DF;
 
 .screen-reader-text {
 	display: none;
+}
+
+body, html {
+	overflow-x: hidden;
 }
 
 // Tables
@@ -278,6 +284,12 @@ header.header {
 	&.is-stuck {
 		// padding: $global-padding/2 0;
 	}
+	.site-logo {
+		max-width: 150px;
+		@include breakpoint(medium down) {
+			padding: $global-padding 0;
+		}
+	}
 	.menu {
 		li {
 			padding: 2*$global-padding 0;
@@ -394,6 +406,95 @@ header.header {
 	}
 }
 
+// Mobile Menu
+
+.mobile-off-canvas {
+	background-color: $teal;
+	box-shadow: 0;
+	&.is-open {
+		box-shadow: 0;
+	}
+	ul.menu {
+		li {
+			border-bottom: 1px solid $cream;
+			margin: 0 20px;
+			a {
+				background: $teal;
+				color: $cream;
+				text-transform: uppercase;
+				font-weight: bold;
+				letter-spacing: 1px;
+				padding: 10px 0;
+				&:hover, &:active, &:focus {
+					outline: 0;
+					color: darken($cream, 15%);
+				}
+			}
+			&:last-of-type {
+				border-bottom: 0;
+			}
+		}
+	}
+	ul.user-sign-up-menu {
+		background-color: darken($teal, 20%);
+		padding: 2*$global-padding 0;
+		li {
+			border-bottom: 0;
+			a {
+				background-color: darken($teal, 20%);	
+			}
+		}
+	}
+	ul.user-logged-in-menu {
+		background-color: darken($teal, 20%);
+		padding: 2*$global-padding 0;
+		li {
+			border-bottom: 0;
+			a {
+				background-color: darken($teal, 20%);
+			}
+			&.is-drilldown-submenu-parent {
+				a {
+					&:after {
+						border-color: transparent transparent transparent $cream;
+					}
+				}
+			}
+			&.js-drilldown-back {
+				a:before {
+					border-color: transparent $cream transparent transparent;
+				}
+			}
+		}
+		.is-drilldown-submenu {
+			background-color: darken($teal, 20%);
+		}
+	}
+	ul {
+		li {
+			a.cart {
+				padding-left: 2rem;
+				position: relative;
+				&:before {
+					// content: 'Items In Your Cart: ';
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 0;
+					height: 100%;
+					width: 20px;
+					background-image: url('../../img/icon-cart-cream.svg');
+					background-position: center center;
+					background-size: contain;
+					background-repeat: no-repeat;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+}
+
+
 footer.site-footer {
 	padding: 2*$global-padding 0;
 	background-color: $teal;
@@ -496,14 +597,28 @@ section.no-plate-like-home {
 		width: 300px;
 		background-size: cover;
 		background-position: center center;
+		display: block;
 	}
 	&:before {
 		background-image: url('../../img/basil-left.png');
-		left: 0;
+		@include breakpoint(large) {
+			left: 0;
+			display: block;	
+		}
+		
+		@include breakpoint(medium down) {
+			display: none;
+		}
 	}
 	&:after {
 		background-image: url('../../img/basil-right.png');
-		right: 0;
+		@include breakpoint(large) {
+			right: 0;
+			display: block;
+		}
+		@include breakpoint(medium down) {
+			display: none;
+		}
 	}
 
 	h2 {
@@ -629,6 +744,9 @@ section.personas {
 		padding: 400px $global-padding $global-padding;
 		color: $white;
 		position: relative;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
 		h2 {
 			font-size: 24px;
 		}
@@ -681,16 +799,21 @@ div.featured-meal-slider {
 	.slick-prev {
 		position: absolute;
 		top: 50%;
-		left: -60px;
+		left: -40px;
 		transform: translateY(-50%);
 		cursor: pointer;
 	}
 	.slick-next {
 		position: absolute;
 		top: 50%;
-		right: -60px;
+		right: -40px;
 		transform: translateY(-50%);
 		cursor: pointer; 
+	}
+	@media only screen and (max-width: 1200px) {
+		.slick-prev, .slick-next {
+			display: none;
+		}
 	}
 	article {
 		box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
@@ -716,6 +839,37 @@ div.featured-meal-slider {
 			text-transform: uppercase;
 			color: $teal;
 			font-weight: bold;
+		}
+	}
+	ul.slick-dots {
+		display: block;
+		text-align: center;
+		li {
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			background-color: $teal;
+			margin-right: 10px;
+			font-size: 0;
+			border-radius: 50%;
+			position: relative;			
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: -4px;
+				left: -4px;
+				right: -4px;
+				bottom: -4px;
+				border: 2px solid $teal;
+				border-radius: 50%;
+				transform: scale(0);
+			}
+			&.slick-active {
+				&:after {
+					transform: scale(1);
+				}
+			}
 		}
 	}
 }
@@ -1066,4 +1220,13 @@ ul.accordion {
 section.related.products, section.up-sells {
 	padding: 2*$global-padding 0;
 	background-color: lighten($light-gray, 6%);
+}
+
+// Blog
+.white-bg {
+	background-color: $white;
+	padding: $global-padding;
+}
+.blog-container {
+	background-color: $light-gray;
 }

@@ -59,14 +59,14 @@
 							</div>
 						</div>
 						<div class="order grid-x grid-padding-x align-middle">
-							<div class="large-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right">
 								<h3 class="script">order</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, fugiat!</p>
 							</div>
-							<div class="large-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center">
 								<span class="script big-number-circle">1</span>
 							</div>
-							<div class="large-4 cell">
+							<div class="large-4 medium-4 cell">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-truck.svg" alt="" class="icon">
 							</div>
 						</div>
@@ -74,13 +74,13 @@
 							<div class="connector-line"></div>
 						</div>
 						<div class="heat grid-x grid-padding-x align-middle">
-							<div class="large-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-oven.svg" alt="" class="icon">
 							</div>
-							<div class="large-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center">
 								<span class="script big-number-circle">2</span>
 							</div>
-							<div class="large-4 cell">
+							<div class="large-4 medium-4 cell">
 								<h3 class="script">heat</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, error?</p>
 							</div>
@@ -89,13 +89,13 @@
 							<div class="connector-line"></div>
 						</div>
 						<div class="enjoy grid-x grid-padding-x">
-							<div class="large-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right">
 								<h3 class="script">enjoy</h3>
 							</div>
-							<div class="large-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center">
 								<span class="script big-number-circle">3</span>
 							</div>
-							<div class="large-4 cell">
+							<div class="large-4 medium-4 cell">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-bowl.svg" alt="" class="icon">
 							</div>
 						</div>
@@ -136,7 +136,7 @@
 		<section class="personas">
 			<div class="grid-container">
 				<hr>
-				<div class="grid-x grid-margin-x large-up-3 small-up-1 align-middle">
+				<div class="grid-x grid-margin-x large-up-3 medium-up-2 small-up-1 align-middle">
 					<div class="cell">
 						<a class="professionals" href="/professionals">
 							<h2>Professionals on the Go</h2>

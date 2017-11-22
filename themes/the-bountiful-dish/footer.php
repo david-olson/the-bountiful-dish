@@ -28,11 +28,11 @@
 			</div>
 			<div class="grid-x grid-padding-x">
 				<div class="large-12 cell">
-					<div class="grid-x grid-padding-x large-up-4">
-						<div class="cell"><img src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img src="http://placehold.it/500x500" alt=""></div>
+					<div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2">
+						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
+						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
+						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
+						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
 					</div>
 					<?php //get instagram shortcode ?>
 						

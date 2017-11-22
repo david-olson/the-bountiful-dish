@@ -13,5 +13,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php get_search_form(); ?>
+	<h3>Categories</h3>
+	<hr class="small-margin">
+	<?php wp_dropdown_categories(); ?>
 </aside><!-- #secondary -->

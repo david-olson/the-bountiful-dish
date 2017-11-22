@@ -294,7 +294,7 @@ function get_meals_teaser($category_slug)
 		echo '</div>';
 		echo '<div class="large-12 cell"><hr class="small-margin"></div>';
 		echo '</div>';
-		echo '<div class="grid-x grid-padding-x large-up-4 medium-up-2 large-margin">';
+		echo '<div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2 large-margin">';
 		while($teaser_query->have_posts()) : $teaser_query->the_post();
 			get_template_part('template-parts/meals-teaser');
 		endwhile; 
