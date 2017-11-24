@@ -174,6 +174,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 add_image_size('featured_meal', 300, 200, true);
+add_image_size('sample_catering_menu', 600, 400, true);
 
 
 
@@ -328,6 +329,34 @@ function get_testimonials()
 		</div>
 	<?php endif;
 	wp_reset_postdata();
+}
+
+function get_sample_catering_menu()
+{
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => 4,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'slug',
+				'terms' => 'catering',
+				'operator' => 'IN',
+			),
+		),
+	);
+
+	$catering_query = new WP_Query($args); 
+
+	if ($catering_query->have_posts()) : 
+		while ($catering_query->have_posts()) : $catering_query->the_post();
+			?>
+			<div class="cell margin-bottom catering-menu-sample" style="background-image: url('<?php the_post_thumbnail_url( 'sample_catering_menu' ); ?>');">
+				<h2><?php the_title(); ?></h2>
+			</div>
+			<?php
+		endwhile; 
+	endif; 
 }
 
 // 
