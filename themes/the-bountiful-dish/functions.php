@@ -127,6 +127,8 @@ add_action( 'widgets_init', 'the_bountiful_dish_widgets_init' );
 function the_bountiful_dish_scripts() {
 	wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700|Sacramento');
 
+	wp_enqueue_style( 'foundation-icons', '//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' );
+
 	wp_enqueue_style( 'the-bountiful-dish-style', get_template_directory_uri() . '/assets/css/build/app.min.css' );
 
 	wp_enqueue_script( 'the-bountiful-dish-vendors', get_template_directory_uri() . '/assets/js/build/vendors.min.js', array('jquery'), '20151215', true );
@@ -357,6 +359,7 @@ function get_sample_catering_menu()
 			<?php
 		endwhile; 
 	endif; 
+	wp_reset_postdata();
 }
 
 // 

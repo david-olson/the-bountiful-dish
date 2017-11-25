@@ -37,7 +37,7 @@
 			<div class="large-12 cell text-center large-pad">
 				<h2 class="upper bold">Ready to get started?</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, cum!</p>
-				<a href="/catering/sign-up" class="button large">Click Here</a>
+				<a href="/catering/catering-sign-up" class="button large">Click Here</a>
 			</div>
 		</div>
 	</div>
