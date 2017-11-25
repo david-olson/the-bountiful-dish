@@ -362,6 +362,29 @@ function get_sample_catering_menu()
 	wp_reset_postdata();
 }
 
+function get_featured_posts()
+{
+	$args = array(
+		'post_type' => 'post', 
+		'meta_key' => '_zilla_likes',
+		'orderby' => 'meta_value_num',
+		'posts_per_page' => 5,
+	);
+	$top_query = new WP_Query($args);
+
+	if ($top_query->have_posts()) : ?>
+		<div class="top-posts-slider">
+		<?php while ($top_query->have_posts()) : $top_query->the_post();
+			?>
+			
+				<?php get_template_part( 'template-parts/top-posts-slider' ); ?>
+		<?php endwhile; ?>
+		</div>
+		<?php
+	endif;
+	wp_reset_postdata();
+}
+
 // 
 // Woocommerce Stuff
 // 

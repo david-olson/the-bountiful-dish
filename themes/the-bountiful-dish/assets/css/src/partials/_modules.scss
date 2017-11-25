@@ -210,7 +210,23 @@ table {
 	padding: 2*$global-padding 0;
 }
 .giant-pad {
-	padding: 4*$global-padding 0;
+	padding: 4*$global-padding 0; 
+}
+
+.small-pad-full {
+	padding: $global-padding/2;
+}
+
+.medium-pad-full {
+	padding: $global-padding;
+}
+
+.large-pad-full {
+	padding: 2*$global-padding;
+}
+
+.giant-pad-full {
+	padding: 4*$global-padding;
 }
 
 .round {
@@ -251,6 +267,34 @@ table {
 		color: $black;
 	}
 }
+
+.ess-buttons {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 5px;
+		svg {
+			max-width: 20px;
+			height: auto;
+			min-height: 20px;
+			min-width: 20px;
+			max-height: 20px;
+		}
+		a {
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+// a.zilla-likes {
+// 	margin-bottom: 0;
+// }
 
 .hero {
 	&.interior {
@@ -1239,6 +1283,35 @@ section.related.products, section.up-sells {
 }
 .blog-container, .catering-form {
 	background-color: $light-gray;
+}
+
+section.top-posts {
+	background-color: lighten($light-gray, 5%);
+	.white-bg {
+
+	}
+	.slick-slide {
+		margin: 0 $global-margin;
+		box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
+	}
+	.slick-list {
+		margin: 0 -$global-margin;
+		padding: $global-padding 0;
+	}
+	.slick-prev {
+		position: absolute;
+		top: 50%;
+		left: -60px;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+	.slick-next {
+		position: absolute;
+		top: 50%;
+		right: -60px;
+		transform: translateY(-50%);
+		cursor: pointer; 
+	}
 }
 
 // Catering Menu
