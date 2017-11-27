@@ -176,7 +176,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 add_image_size('featured_meal', 300, 200, true);
-add_image_size('sample_catering_menu', 600, 400, true);
+add_image_size('sample_catering_menu', 600, 480, true);
 
 
 
@@ -414,3 +414,12 @@ function custom_registration_redirect() {
     return home_url('/my-account');
 }
 add_action('woocommerce_registration_redirect', 'custom_registration_redirect', 2);
+
+/* =BEGIN: Add Class to first Paragraph in WordPress the_content();
+    Source: http://webdevbits.com/wordpress/add-class-to-first-paragraph-in-wordpress-the_content/
+   ---------------------------------------------------------------------------------------------------- */
+function first_paragraph($content){
+  // Adds the Lead class to the first paragraphs of the_content();
+    return preg_replace('/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1);
+}
+add_filter('the_content', 'first_paragraph');

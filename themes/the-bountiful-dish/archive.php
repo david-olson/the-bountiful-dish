@@ -9,43 +9,46 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<main>
+		<section class="top-posts large-pad">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x">
+					<div class="large-12 cell text-center">
+						<h1>All <?php single_cat_title(); ?> Posts</h1>
+					</div>
+				</div>
+			</div>
+			<?php if ( have_posts() ) : ?>
+				<div class="grid-container">
+					<div class="medium-pad">
+						<?php $i = 0; ?>
+						<?php while (have_posts()) : the_post(); ?>
+							<?php get_template_part('template-parts/main-loop'); ?>
+							<?php ++$i; ?>
+						<?php endwhile; ?>		
+					</div>
+					<div class="grid-x grid-padding-x">
+						<div class="large-12 cell text-center">
+							<ul class="pagination align-center">
+								<?php $args = array(
+									'type' => 'list',
+									); ?>
+								<?php echo paginate_links( $args ); ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<?php else : ?>
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x">
+						<div class="large-12 cell text-center">
+							<p>We couldn't find any posts that match your request.</p>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+		</section>
+	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

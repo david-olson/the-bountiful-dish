@@ -273,20 +273,28 @@ table {
 	display: inline-block;
 	margin: 0;
 	padding: 0;
+	margin-left: 1rem;
 	li {
 		display: inline-block;
 		vertical-align: middle;
 		margin-right: 5px;
 		svg {
-			max-width: 20px;
+			max-width: 15px;
 			height: auto;
-			min-height: 20px;
-			min-width: 20px;
-			max-height: 20px;
+			min-height: 15px;
+			min-width: 15px;
+			max-height: 15px;
+			fill: $medium-gray;
+			transition: fill ease-out 0.25s;
 		}
 		a {
 			span {
 				display: none;
+			}
+		}
+		&:hover {
+			svg {
+				fill: $dark-gray;
 			}
 		}
 	}
@@ -1312,6 +1320,54 @@ section.top-posts {
 		transform: translateY(-50%);
 		cursor: pointer; 
 	}
+}
+
+.post-image {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+ul.pagination {
+	.current {
+		background: $teal;
+	}
+}
+
+// Single Blog Posts
+
+section.intro {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 5*$global-padding 0;
+	position: relative;
+	h1, h2, h3, p, a {
+		color: $white;
+		position: relative;
+		z-index: 3;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba($black, 0.65);
+		z-index: 1;
+	}
+}
+
+.meta-divider {
+	padding: 0 2rem;
+}
+
+section.single-content {
+	transform: translateY(-3rem);
+	position: relative;
+	z-index: 2;
+	margin-bottom: -3rem;
 }
 
 // Catering Menu

@@ -9,12 +9,12 @@
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
 					<div class="medium-10 cell white-bg large-margin-bottom text-center lead">
-						<?php the_content(); ?>
+						<div class="large-pad-full"><?php the_content(); ?></div>
 					</div>
 				</div>
 				<div class="grid-x grid-padding-x align-center">
 					<div class="medium-10 cell white-bg">
-						<?php echo do_shortcode( '[contact-form-7 id="370" title="Contact form 1"]' ); ?>		
+						<div class="large-pad-full"><?php echo do_shortcode( '[contact-form-7 id="370" title="Contact form 1"]' ); ?></div>		
 					</div>
 				</div>
 			</div>

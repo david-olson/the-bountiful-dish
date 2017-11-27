@@ -59,12 +59,13 @@
 				<div class="large-3 cell">
 					<h3>Contact Us</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, quas.</p>
+					<a href="/contact">Get In Touch</a>
 					<?php //form shortcode ?>
 				</div>
 				<div class="large-3 cell">
 					<h3>Talk About Us</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, voluptate.</p>
-					<a href="/media-inquieries" class="media">Media Inquieries</a>
+					<a href="/media-inquiries" class="media">Media Inquiries</a>
 				</div>
 			</div>
 		</div>
@@ -72,7 +73,7 @@
 	<section class="sub-footer">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center"><p class="gray small-margin"><a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/privacy-policy">Privacy Policy</a></p></div>
+				<div class="large-12 cell text-center"><p class="gray small-margin"><a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/legal">Privacy Policy</a></p></div>
 			</div>
 		</div>
 	</section>
