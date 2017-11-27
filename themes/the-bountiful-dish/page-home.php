@@ -16,7 +16,7 @@
 								<h3>First Time Orders: Special Offer Here!</h3>
 							</div>
 							<div class="large-4 cell">
-								<button class="button expanded" type="button">Redeem Offer</button>
+								<a href="/first-time" class="button expanded">Redeem Offer</a>
 							</div>
 						</div>
 					</div>
@@ -137,43 +137,17 @@
 			<div class="grid-container">
 				<hr>
 				<div class="grid-x grid-margin-x large-up-3 medium-up-2 small-up-1 align-middle">
-					<div class="cell">
-						<a class="professionals" href="/professionals">
-							<h2>Professionals on the Go</h2>
-							<p>Meals to fuel your brain.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
-					<div class="cell">
-						<a class="athletes" href="/athletes"><h2>Athletes &amp; Performance</h2>
-							<p>Nourish your regiment.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
-					<div class="cell">
-						<a class="beach" href="/beach-bound"><h2>Beach Bound</h2>
-							<p>Easy snacks to keep you moving.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
-					<div class="cell">
-						<a class="home" href="/busy-homes"><h2>The Busy Healthy Home</h2>
-							<p>Take a load off moms &amp; busy families.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
-					<div class="cell">
-						<a class="dorm" href="/dorm-room-delivery"><h2>Dorm Room Delivery</h2>
-							<p>Power up your studies.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
-					<div class="cell">
-						<a class="wellness" href="/wellness"><h2>Wellness Minded</h2>
-							<p>Conscious meals for the health minded.</p>
-							<button class="button outline" type="button">More Info</button>
-						</a>
-					</div>
+					<?php $personas = get_terms('persona', array('hide_empty' => false)); ?>
+					<?php foreach ($personas as $persona) : ?>
+						<?php $term_image = get_field('featured_image', 'term_'.$persona->term_id); ?>
+						<div class="cell">
+							<a style="background-image: url('<?php echo $term_image['sizes']['category_overview']; ?>');" href="/persona/<?php echo $persona->slug; ?>">
+								<h2><?php echo $persona->name; ?></h2>
+								<p><?php echo $persona->description; ?></p>
+								<button class="button outline" type="button">More Info</button>
+							</a>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>

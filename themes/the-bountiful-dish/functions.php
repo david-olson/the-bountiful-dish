@@ -177,6 +177,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 add_image_size('featured_meal', 300, 200, true);
 add_image_size('sample_catering_menu', 600, 480, true);
+add_image_size('category_overview', 360, 500, true);
+add_image_size('single_heros', 1300, 9999, false);
+add_image_size('single_loader', 16, 9, true);
 
 
 
