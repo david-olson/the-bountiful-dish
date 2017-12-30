@@ -89,7 +89,17 @@ gulp.task('styles', function() {
 
 gulp.task('vendorsJs', function() {
 	return gulp.src(['./bower.json'])
-		.pipe(mainBowerFiles())
+		.pipe(mainBowerFiles({
+			overrides: {
+				scrollmagic: {
+					main: [
+						'./scrollmagic/minified/ScrollMagic.min.js',
+						'./scrollmagic/minified/plugins/animation.gsap.min.js',
+						'./scrollmagic/minified/plugins/debug.addIndicators.min.js'
+					]
+				}
+			}
+		}))
 		.pipe(filter('**/*.js'))
 		.pipe(concat('vendors.js'))
 		.pipe(gulp.dest('./assets/js/build'))

@@ -22,19 +22,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php
-	/**
-	 * woocommerce_before_single_product hook.
-	 *
-	 * @hooked wc_print_notices - 10
-	 */
-	 do_action( 'woocommerce_before_single_product' );
-
-	 if ( post_password_required() ) {
-	 	echo get_the_password_form();
-	 	return;
-	 }
-?>
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 cell medium-pad"><?php
+				/**
+				 * woocommerce_before_single_product hook.
+				 *
+				 * @hooked wc_print_notices - 10
+				 */
+				 do_action( 'woocommerce_before_single_product' );
+			
+				 if ( post_password_required() ) {
+				 	echo get_the_password_form();
+				 	return;
+				 }
+			?></div>
+	</div>
+</div>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x large-pad">
 		<div class="large-12 cell">
@@ -50,7 +54,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						do_action( 'woocommerce_before_single_product_summary' );
 					?>
 								
-					<div class="large-6 cell"><div class="summary entry-summary">
+					<div class="large-6 cell">
+						<div class="summary entry-summary">
 									
 							<?php
 								/**

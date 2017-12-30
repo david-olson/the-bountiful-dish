@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <section class="hero interior mission-hero text-center">
 	<h1 class="white">Catering and Corporate Events</h1>
 </section>
@@ -7,18 +7,17 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="large-10 large-centered cell medium-10 medium-centered text-center large-pad">
-				<p class="lead green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error incidunt, tenetur a excepturi dolore natus ab nulla officia iste explicabo porro animi velit autem expedita molestiae numquam sit non rem.</p>
+				<?php the_content(); ?>
 			</div>
 		</div>
-		<div class="grid-x grid-padding-x">
+		<div class="grid-x grid-padding-x align-middle">
 			<div class="large-6 cell">
-				<h2>Lorem Ipsum Dolor</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi autem est nesciunt deleniti atque eligendi. Ipsa molestiae quo accusamus, facere?</p>
-				<p>Et eveniet in harum voluptas! Totam ducimus distinctio, voluptatibus quibusdam molestiae nam debitis possimus assumenda molestias quae cumque delectus repudiandae.</p>
-				<a href="#" class="button alternate">Get Started</a>
+				<?php the_field('copy_block'); ?>
+				<a href="/catering/catering-sign-up" class="button alternate">Get Started</a>
 			</div>
 			<div class="large-6 cell">
-				<img src="http://placehold.it/800x500" alt="">
+				<?php $image = get_field('photo'); ?>
+				<img src="<?php echo $image['sizes']['single_heros']; ?>" alt="">
 			</div>
 		</div>
 	</div>
@@ -35,12 +34,10 @@
 		</div>
 		<div class="grid-x grid-padding-x">
 			<div class="large-12 cell text-center large-pad">
-				<h2 class="upper bold">Ready to get started?</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, cum!</p>
-				<a href="/catering/catering-sign-up" class="button large">Click Here</a>
+				<a href="/catering/catering-sign-up" class="button large">Get Started</a>
 			</div>
 		</div>
 	</div>
 </section>
-
+<?php endwhile; endif; ?>
 <?php get_footer(); ?>

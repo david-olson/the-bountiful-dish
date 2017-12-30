@@ -28,7 +28,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <div class="cell">
-	<article <?php post_class(); ?> id="menu-item-<?php the_ID(); ?>">
+	<article <?php post_class(' match-height'); ?> id="menu-item-<?php the_ID(); ?>">
 		<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.
@@ -71,6 +71,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	<div class="grid-x grid-margin-x align-middle">
 		<div class="large-12 cell">
 			<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+			<?php if ($product->get_stock_quantity() > 0) : ?>
+			<?php elseif ($product->get_stock_quantity() == '0') : ?>
+				<span class="no-margin stock out-of-stock">None Left This Week</span>
+			<?php endif; ?>
 		</div>
 		<div class="large-12 cell">
 			<p class="excerpt"><?php $excerpt =  get_the_excerpt(); 
@@ -81,7 +85,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<a class="gray upper" href="<?php the_permalink(); ?>">More Info</a>
 		</div>
 		<div class="auto cell">
-			<a href="/menu/?add-to-cart=<?php the_ID(); ?>" data-quantity="1" data-product_id="<?php the_ID(); ?>" class="button alternate ajax_add_to_cart add_to_cart_button no-margin expanded">Add to Cart</a>
+			<?php if ($product->get_stock_quantity() > 0 || $product->get_stock_quantity() !== 0) : ?>
+				<a href="/menu/?add-to-cart=<?php the_ID(); ?>" data-quantity="1" data-product_id="<?php the_ID(); ?>" class="button alternate ajax_add_to_cart add_to_cart_button no-margin expanded">Add to Cart</a>
+			<?php else : ?>
+				<a href="<?php the_permalink(); ?>" class="button secondary disabled no-margin expanded">Out Of Stock</a>
+			<?php endif; ?>
 		</div>
 	</div>
 	</article>

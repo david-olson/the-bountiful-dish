@@ -253,17 +253,7 @@ function get_newsletter_signup()
 	?>
 	<section class="newsletter-signup">
 		<div class="grid-container">
-			<div class="grid-x grid-padding-x align-center">
-				<div class="large-4 cell">
-					<h3>Sign Up For Our Newsletter!</h3>
-				</div>
-				<div class="large-5 cell">
-					<input type="text" name="email" placeholder="Your Email">
-				</div>
-				<div class="large-3 cell">
-					<input type="submit" class="button expanded" value="Sign Up">
-				</div>
-			</div>
+			<?php echo do_shortcode('[contact-form-7 id="728" title="Homepage Signup"]'); ?>
 		</div>
 	</section>
 	<?
@@ -273,7 +263,7 @@ function get_meals_teaser($category_slug)
 {
 	$args = array(
 		'post_type' => 'product',
-		'posts_per_page' => 4,
+		'posts_per_page' => 3,
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'product_cat',
@@ -300,9 +290,9 @@ function get_meals_teaser($category_slug)
 		echo '</div>';
 		echo '<div class="large-12 cell"><hr class="small-margin"></div>';
 		echo '</div>';
-		echo '<div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2 large-margin">';
+		echo '<div class="grid-x grid-margin-x large-up-3 medium-up-3 small-up-1 large-margin floating-cell">';
 		while($teaser_query->have_posts()) : $teaser_query->the_post();
-			get_template_part('template-parts/meals-teaser');
+			get_template_part('woocommerce/content-product');
 		endwhile; 
 		echo '</div>';
 		echo '</div>';

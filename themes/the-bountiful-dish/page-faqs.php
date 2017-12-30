@@ -3,8 +3,10 @@
 <?php while (have_posts()) : the_post(); ?>
 
 <div class="grid-container">
-	<div class="grid-x grid-padding-x align-center large-margin">
-		<div class="medium-8 cell">
+	<div class="grid-x grid-padding-x align-center">
+		<div class="medium-8 cell large-margin">
+			<h1 class="text-center">Frequently Asked Questions</h1>
+			<div class="large-margin"><?php the_content(); ?></div>
 			<?php if (have_rows('faqs')) : ?>
 				<ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 					<?php $i = 0; ?>

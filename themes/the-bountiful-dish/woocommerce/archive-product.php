@@ -33,7 +33,8 @@ get_header( 'shop' ); ?>
 		<?php 
 			$args = array(
 				'taxonomy' => 'product_cat',
-				'hide_empty' => false,
+				'hide_empty' => true,
+				'exclude' => 34,
 			);
 			$terms = get_terms($args);
 		?>

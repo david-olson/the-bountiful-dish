@@ -91,6 +91,7 @@
 									<a class="username" href="#"><?php echo $current_user->data->display_name; ?></a>
 									<ul class="menu">
 										<li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Account</a></li>
+										<li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>/orders">Order History</a></li>
 										<li><a href="<?php echo wc_logout_url( wc_get_page_permalink( 'myaccount' ) ); ?>">Logout</a></li>
 									</ul>
 								</li>

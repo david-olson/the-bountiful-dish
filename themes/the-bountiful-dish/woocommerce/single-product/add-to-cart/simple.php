@@ -31,9 +31,13 @@ if ( $product->is_in_stock() ) : ?>
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-	<form class="cart" method="post" enctype='multipart/form-data'>
-		<div class="grid-x grid-padding-x">
-			<div class="large-2 cell"><?php
+	<form class="cart margin-bottom" method="post" enctype='multipart/form-data'>
+		<div class="grid-x grid-padding-x align-middle">
+			<div class="large-1 cell">
+				QTD:
+			</div>
+			<div class="large-2 cell">
+				<?php
 					/**
 					 * @since 2.1.0.
 					 */
@@ -56,7 +60,7 @@ if ( $product->is_in_stock() ) : ?>
 					do_action( 'woocommerce_after_add_to_cart_quantity' );
 				?></div>
 			
-			<div class="large-10 cell">
+			<div class="large-9 cell">
 				<a href="/menu/?add-to-cart=<?php the_ID(); ?>" data-quantity="1" data-product_id="<?php the_ID(); ?>" class="button alternate ajax_add_to_cart add_to_cart_button no-margin expanded">Add to Cart</a>
 			</div>
 			

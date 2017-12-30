@@ -1,8 +1,10 @@
 <?php global $product; ?>
 <article class="featured-meal slide match-height" id="featured_meal_slide_<?php the_ID(); ?>">
-	<a href="<?php the_permalink(); ?>">
-		<img src="<?php the_post_thumbnail_url('featured_meal'); ?>" alt="<?php the_title(); ?>">
-	</a>
+	<?php if (has_post_thumbnail()) : ?>
+		<a href="<?php the_permalink(); ?>">
+			<img src="<?php the_post_thumbnail_url('featured_meal'); ?>" alt="<?php the_title(); ?>">
+		</a>
+	<?php endif; ?>
 	<div class="details-holder">
 		<p class="category"><?php echo get_the_category_list(', '); ?></p>
 		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>

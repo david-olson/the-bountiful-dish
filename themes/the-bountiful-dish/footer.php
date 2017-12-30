@@ -18,7 +18,7 @@
 					<h2 class="no-margin upper">From Instagram</h2>
 				</div>
 				<div class="auto cell align-self-right text-right">
-					<a href="#" class="gray">Follow Us &gt;</a>
+					<a href="https://www.instagram.com/bountifuldish/" class="gray">Follow Us &gt;</a>
 				</div>
 			</div>
 			<div class="grid-x grid-padding-x">
@@ -26,17 +26,17 @@
 					<hr class="small-margin">
 				</div>
 			</div>
-			<div class="grid-x grid-padding-x">
-				<div class="large-12 cell">
-					<div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2">
+			<div class="grid-x grid-margin-x">
+				<!-- <div class="large-12 cell"> -->
+					<!-- <div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2">
 						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
 						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
 						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
 						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
-					</div>
-					<?php //get instagram shortcode ?>
+					</div> -->
+					<?php echo do_shortcode('[instagram-feed]'); ?>
 						
-				</div>
+				<!-- </div> -->
 			</div>
 		</div>
 	</section>
@@ -46,7 +46,7 @@
 			<div class="grid-x grid-padding-x">
 				<div class="large-3 cell">
 					<h3>About Us</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dicta autem dolorum natus laborum reprehenderit amet voluptates doloremque facere doloribus.</p>
+					<p>We take great pride in our ability to accommodate diverse taste buds, address dietary needs and serve as a mealtime companion for our clients as they make their way on their healthy eating journey.</p>
 				</div>
 				<div class="large-3 cell">
 					<h3>Follow Us</h3>
@@ -58,14 +58,13 @@
 				</div>
 				<div class="large-3 cell">
 					<h3>Contact Us</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, quas.</p>
-					<a href="/contact">Get In Touch</a>
+					<p>We love hearing from our hungry customers! If you have any questions regarding menu, delivery, or nutrition, <a href="/contact" style="text-decoration: underline">get in touch.</a></p>
 					<?php //form shortcode ?>
 				</div>
 				<div class="large-3 cell">
-					<h3>Talk About Us</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, voluptate.</p>
-					<a href="/media-inquiries" class="media">Media Inquiries</a>
+					<h3>Partner with Us</h3>
+					<p>The Bountiful Dish is more than just meals. We strive to make an impact in our community and would love to partner with you.</p>
+					<a href="/media-inquiries" class="media" style="text-decoration: underline;">More Info</a>
 				</div>
 			</div>
 		</div>

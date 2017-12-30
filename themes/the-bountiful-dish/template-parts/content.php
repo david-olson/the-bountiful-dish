@@ -11,7 +11,7 @@
 
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<section class="intro" style="background-image: url('http://source.unsplash.com/collection/160213/1300x800?sig=<?php echo $i; ?><?php //the_post_thumbnail_url( 'sample_catering_menu' ); ?>');">
+		<section class="intro" style="background-image: url('<?php if (has_post_thumbnail()) : ?><?php the_post_thumbnail_url( 'sample_catering_menu' ); ?><?php else : ?><?php echo get_template_directory_uri(); ?>/assets/img/fallback.png');<?php endif; ?>">
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x">
 					<div class="large-12 cell text-center">

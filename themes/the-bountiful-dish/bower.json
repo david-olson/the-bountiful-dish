@@ -19,6 +19,9 @@
     "foundation-sites": "^6.4.3",
     "slick-carousel": "slick.js#^1.8.1",
     "matchHeight": "matchheight#^0.7.2",
-    "foundation-datepicker": "^1.5.6"
+    "foundation-datepicker": "^1.5.6",
+    "gsap": "^1.20.3",
+    "scrollmagic": "ScrollMagic#^2.0.5",
+    "rellax": "*"
   }
 }

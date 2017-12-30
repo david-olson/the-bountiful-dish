@@ -3,8 +3,13 @@
 <?php if (have_posts()) : ?>
 	<?php while(have_posts()) : the_post(); ?>
 
-		<section class="hero-slider" id="hero_slider">
-			<?php  get_hero_slider(); ?>		
+		<section class="home-hero" id="home_hero">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
+			<div class="hero-health-happiness" id="hero_health_happiness">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/delivering-health-and-happiness.svg" alt="Delivering Health and Happiness" />
+				<h2>No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
+			</div>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">
 		</section>
 
 		<section class="cta-bar">
@@ -13,7 +18,7 @@
 					<div class="medium-8 cell">
 						<div class="grid-padding-x grid-x align-middle">
 							<div class="large-8 cell">
-								<h3>First Time Orders: Special Offer Here!</h3>
+								<h3 class="gray">First Time Orders: Special Offer Here!</h3>
 							</div>
 							<div class="large-4 cell">
 								<a href="/first-time" class="button expanded">Redeem Offer</a>
@@ -31,7 +36,7 @@
 						<h4 class="upper no-margin">New Meals This Week</h4>
 					</div>
 					<div class="large-6 cell text-right">
-						<a href="#" class="upper gray no-margin">View All &gt;</a>
+						<a href="/menu" class="upper gray no-margin">View All &gt;</a>
 					</div>
 				</div>
 				<div class="grid-x grid-padding-x">
@@ -49,7 +54,7 @@
 			</div>
 		</section>
 
-		<section class="no-plate-like-home">
+		<section class="no-plate-like-home" id="no_plate_like_home">
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
 					<div class="medium-8 cell">
@@ -59,43 +64,37 @@
 							</div>
 						</div>
 						<div class="order grid-x grid-padding-x align-middle">
-							<div class="large-4 medium-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
 								<h3 class="script">order</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, fugiat!</p>
+								<p>Choose meals from our weekly menu and have them delivered to your door.</p>
 							</div>
-							<div class="large-4 medium-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
 								<span class="script big-number-circle">1</span>
 							</div>
-							<div class="large-4 medium-4 cell">
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-truck.svg" alt="" class="icon">
 							</div>
 						</div>
-						<div class="connect-holder">
-							<div class="connector-line"></div>
-						</div>
 						<div class="heat grid-x grid-padding-x align-middle">
-							<div class="large-4 medium-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-3">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-oven.svg" alt="" class="icon">
 							</div>
-							<div class="large-4 medium-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
 								<span class="script big-number-circle">2</span>
 							</div>
-							<div class="large-4 medium-4 cell">
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-1">
 								<h3 class="script">heat</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, error?</p>
+								<p>Easy instructions and ingredients you recognize for meals ready when you are.</p>
 							</div>
-						</div>
-						<div class="connect-holder">
-							<div class="connector-line"></div>
 						</div>
 						<div class="enjoy grid-x grid-padding-x">
-							<div class="large-4 medium-4 cell text-right">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
 								<h3 class="script">enjoy</h3>
 							</div>
-							<div class="large-4 medium-4 cell text-center">
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
 								<span class="script big-number-circle">3</span>
 							</div>
-							<div class="large-4 medium-4 cell">
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-bowl.svg" alt="" class="icon">
 							</div>
 						</div>
@@ -105,13 +104,10 @@
 					</div>
 				</div>
 			</div>
+			<?php get_template_part('assets/img/line'); ?>
 		</section>
 
 		<?php get_newsletter_signup(); ?>
-
-		<?php get_meals_teaser('lunch-dinner'); ?>
-
-		<?php get_meals_teaser('quick-and-easy-lunches'); ?>
 
 		<section class="benefits">
 			<div class="grid-container">
@@ -152,10 +148,7 @@
 			</div>
 		</section>
 
-
-		<?php get_meals_teaser('new'); ?>
-
-		<?php get_meals_teaser('sides'); ?>
+		<div class="fade-in"><?php get_meals_teaser('lunch-dinner'); ?></div>
 
 		<section class="testimonials">
 			<?php get_testimonials(); ?>
