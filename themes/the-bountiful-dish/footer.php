@@ -27,16 +27,7 @@
 				</div>
 			</div>
 			<div class="grid-x grid-margin-x">
-				<!-- <div class="large-12 cell"> -->
-					<!-- <div class="grid-x grid-padding-x large-up-4 medium-up-4 small-up-2">
-						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
-						<div class="cell"><img class="margin-bottom" src="http://placehold.it/500x500" alt=""></div>
-					</div> -->
 					<?php echo do_shortcode('[instagram-feed]'); ?>
-						
-				<!-- </div> -->
 			</div>
 		</div>
 	</section>
@@ -51,9 +42,9 @@
 				<div class="large-3 cell">
 					<h3>Follow Us</h3>
 					<ul class="menu">
-						<li class="instagram"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-footer.svg" alt="Instagram"></a></li>
-						<li class="twitter"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-footer.svg" alt="Twitter"></a></li>
-						<li class="facebook"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/facebook-footer.svg" alt="Facebook"></a></li>
+						<li class="instagram"><a href="https://www.instagram.com/bountifuldish/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-footer.svg" alt="Instagram"></a></li>
+						<li class="twitter"><a href="https://twitter.com/BountifulDish"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-footer.svg" alt="Twitter"></a></li>
+						<li class="facebook"><a href="https://www.facebook.com/BountifulDish/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/facebook-footer.svg" alt="Facebook"></a></li>
 					</ul>
 				</div>
 				<div class="large-3 cell">

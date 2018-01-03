@@ -1349,6 +1349,9 @@ section.btd-product-container {
 section.meals-teaser {
 	.floating-cell {
 		& > .cell {
+			a {
+				color: $teal;
+			}
 			background-color: $white;
 			box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
 			padding: $global-padding;

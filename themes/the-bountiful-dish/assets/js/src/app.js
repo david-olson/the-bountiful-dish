@@ -59,14 +59,7 @@ $(document).ready(function() {
 	$('.top-posts-slider').on('beforeChange', function(slick, currentSlide, nextSlide) {
 		$('.match-height').matchHeight();
 	});
-	$('.mission-slider').slick({
-		slidesToShow: 1,
-		infinite: true,
-		arrows: true,
-		prevArrow: '<button type="button" class="slick-prev"><svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage" transform="translate(-35.000000, -1392.000000)" stroke="#ffffff" stroke-width="2"><g id="Group-Copy-2" transform="translate(36.000000, 1393.000000)"><circle id="Oval-2" cx="21.5" cy="21.5" r="21.5"></circle><polyline id="Path-2" points="26.7996845 10 15 21.7996845 25.933171 32.7328555"></polyline></g></g></g></svg></button>',
-		nextArrow: '<button type="button" class="slick-next"><svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage" transform="translate(-1354.000000, -1392.000000)" stroke="#ffffff" stroke-width="2"><g id="Group-Copy-3" transform="translate(1376.500000, 1414.500000) rotate(-180.000000) translate(-1376.500000, -1414.500000) translate(1355.000000, 1393.000000)"><circle id="Oval-2" cx="21.5" cy="21.5" r="21.5"></circle><polyline id="Path-2" points="26.7996845 10 15 21.7996845 25.933171 32.7328555"></polyline></g></g></g></svg></button>',
-
-	});
+	
 	$('.foundation-datepicker').fdatepicker({
 		closeButton: true, 
 		// leftArrow: '<',
@@ -78,7 +71,7 @@ $(document).ready(function() {
 		console.log(number);
 		document.getElementsByClassName('add_to_cart_button')[0].dataset.quantity = number;
 	});
-	if ($('body').hasClass('home') || $('body').hasClass('page-id-58')) {
+	if ($('body').hasClass('home') || $('body').hasClass('page-id-58') || $('body').hasClass('page-id-499')) {
 		// var controller = new ScrollMagic.Controller({
 		// 	globalSceneOptions: {
 		// 		triggerHook: 'onEnter',
@@ -120,7 +113,7 @@ $(document).ready(function() {
 		var tween = new TimelineMax()
 			.add(TweenMax.to($theLine, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone}));
 
-		var scene = new ScrollMagic.Scene({triggerElement: '#no_plate_like_home', duration: '80%', tweenChanges: true})
+		var scene = new ScrollMagic.Scene({triggerElement: '#no_plate_like_home', duration: lineHeight + 'px', tweenChanges: true})
 			.setTween(tween)
 			// .addIndicators()
 			.addTo(controller);

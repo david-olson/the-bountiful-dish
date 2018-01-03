@@ -416,3 +416,24 @@ function first_paragraph($content){
     return preg_replace('/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1);
 }
 add_filter('the_content', 'first_paragraph');
+
+// Hide shipping from cart.
+function disable_shipping_calc_on_cart( $show_shipping ) {
+    if( is_cart() ) {
+        return false;
+    }
+    return $show_shipping;
+}
+add_filter( 'woocommerce_cart_ready_to_calc_shipping', 'disable_shipping_calc_on_cart', 99 );
+
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Cart and Checkout Messages',
+		'menu_title' => 'Cart & Checkout Messages',
+		'menu_slug' => 'cart-checkout-messages',
+		'capability' => 'edit_posts',
+		'redirect' => false,
+		'icon_url' => 'dashicons-pressthis',
+		'position' => 5
+	));
+}
