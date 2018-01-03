@@ -46,60 +46,55 @@
 			</div>
 		</div>
 	</section>
-	<section class="no-plate-like-home">
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x align-center">
-				<div class="medium-8 cell">
-					<div class="grid-x grid-padding-x">
-						<div class="large-12 text-center cell">
-							<h2>There's no plate like home</h2>
+	<section class="no-plate-like-home" id="no_plate_like_home">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x align-center">
+					<div class="medium-8 cell">
+						<div class="grid-x grid-padding-x">
+							<div class="large-12 text-center cell">
+								<h2>There's no plate like home</h2>
+							</div>
 						</div>
-					</div>
-					<div class="order grid-x grid-padding-x align-middle">
-						<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
-							<h3 class="script">order</h3>
-							<p>Choose meals from our weekly menu and have them delivered to your door.</p>
+						<div class="order grid-x grid-padding-x align-middle">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
+								<h3 class="script">order</h3>
+								<p>Choose meals from our weekly menu and have them delivered to your door.</p>
+							</div>
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
+								<span class="script big-number-circle">1</span>
+							</div>
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-truck.svg" alt="" class="icon">
+							</div>
 						</div>
-						<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
-							<span class="script big-number-circle">1</span>
+						<div class="heat grid-x grid-padding-x align-middle">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-3">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-oven.svg" alt="" class="icon">
+							</div>
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
+								<span class="script big-number-circle">2</span>
+							</div>
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-1">
+								<h3 class="script">heat</h3>
+								<p>Easy instructions and ingredients you recognize for meals ready when you are.</p>
+							</div>
 						</div>
-						<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-truck.svg" alt="" class="icon">
-						</div>
-					</div>
-					<div class="connect-holder hide-for-small">
-						<div class="connector-line"></div>
-					</div>
-					<div class="heat grid-x grid-padding-x align-middle">
-						<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-3">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-oven.svg" alt="" class="icon">
-						</div>
-						<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
-							<span class="script big-number-circle">2</span>
-						</div>
-						<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-1">
-							<h3 class="script">heat</h3>
-							<p>Easy instructions and ingredients you recognize for meals ready when you are.</p>
-						</div>
-					</div>
-					<div class="connect-holder hide-for-small">
-						<div class="connector-line"></div>
-					</div>
-					<div class="enjoy grid-x grid-padding-x">
-						<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
-							<h3 class="script">enjoy</h3>
-						</div>
-						<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
-							<span class="script big-number-circle">3</span>
-						</div>
-						<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-bowl.svg" alt="" class="icon">
+						<div class="enjoy grid-x grid-padding-x">
+							<div class="large-4 medium-4 cell text-right large-order-1 medium-order-1 small-order-2">
+								<h3 class="script">enjoy</h3>
+							</div>
+							<div class="large-4 medium-4 cell text-center large-order-2 medium-order-2 small-order-1">
+								<span class="script big-number-circle">3</span>
+							</div>
+							<div class="large-4 medium-4 cell large-order-3 medium-order-3 small-order-3">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-bowl.svg" alt="" class="icon">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+			<?php get_template_part('assets/img/line'); ?>
+		</section>
 
 	<section class="new-meal-slider" id="form">
 		<div class="grid-container">

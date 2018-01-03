@@ -72,7 +72,7 @@
 	<section class="sub-footer">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center"><p class="gray small-margin"><a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/legal">Privacy Policy</a></p></div>
+				<div class="large-12 cell text-center"><p class="gray small-margin">&copy; 2017 The Bountiful Dish &bull; <a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/legal">Privacy Policy</a></p></div>
 			</div>
 		</div>
 	</section>

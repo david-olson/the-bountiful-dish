@@ -23,8 +23,14 @@
 				<?php endif; ?>
 			</div>
 			<div class="large-7 cell">
-				<?php $image = get_field('copy_block_image'); ?>
-				<img src="<?php echo $image['sizes']['single_heros']; ?>" alt="">
+				<?php if (have_rows('copy_block_image')) : ?>
+					<div class="mission-slider">
+						<?php while (have_rows('copy_block_image')) : the_row(); ?>
+							<?php $image = get_sub_field('image'); ?>
+							<div class="slide" style="background-image: url('<?php echo $image['sizes']['single_heros']; ?>');"></div>
+						<?php endwhile; ?>		
+					</div>
+				<?php endif; ?>
 			</div>
 			<div class="large-12 cell">
 				<hr>

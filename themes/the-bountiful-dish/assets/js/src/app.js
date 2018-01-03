@@ -2,6 +2,9 @@ $(document).ready(function() {
 	$(document).foundation();
 
 	$('.match-height').matchHeight(); 
+	$('.match-height-all').matchHeight({
+		byRow: false,
+	})
 
 	var windowHeight = window.innerHeight;
 
@@ -56,6 +59,14 @@ $(document).ready(function() {
 	$('.top-posts-slider').on('beforeChange', function(slick, currentSlide, nextSlide) {
 		$('.match-height').matchHeight();
 	});
+	$('.mission-slider').slick({
+		slidesToShow: 1,
+		infinite: true,
+		arrows: true,
+		prevArrow: '<button type="button" class="slick-prev"><svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage" transform="translate(-35.000000, -1392.000000)" stroke="#ffffff" stroke-width="2"><g id="Group-Copy-2" transform="translate(36.000000, 1393.000000)"><circle id="Oval-2" cx="21.5" cy="21.5" r="21.5"></circle><polyline id="Path-2" points="26.7996845 10 15 21.7996845 25.933171 32.7328555"></polyline></g></g></g></svg></button>',
+		nextArrow: '<button type="button" class="slick-next"><svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage" transform="translate(-1354.000000, -1392.000000)" stroke="#ffffff" stroke-width="2"><g id="Group-Copy-3" transform="translate(1376.500000, 1414.500000) rotate(-180.000000) translate(-1376.500000, -1414.500000) translate(1355.000000, 1393.000000)"><circle id="Oval-2" cx="21.5" cy="21.5" r="21.5"></circle><polyline id="Path-2" points="26.7996845 10 15 21.7996845 25.933171 32.7328555"></polyline></g></g></g></svg></button>',
+
+	});
 	$('.foundation-datepicker').fdatepicker({
 		closeButton: true, 
 		// leftArrow: '<',
@@ -89,10 +100,10 @@ $(document).ready(function() {
 
 		// Position Line
 		var lineTop = $('.order').position();
-		var lineHeight = $('.order').innerHeight() + $('.heat').innerHeight() + $('.enjoy').innerHeight();
+		var lineHeight = $('.order').innerHeight() + $('.heat').innerHeight() + ($('.enjoy').innerHeight()/2);
 		$('.line-draw-wrapper').css({
-			top: (lineTop.top + 20) + 'px',
-			height: (lineHeight - 50) + 'px',
+			top: (lineTop.top + ($('.order').innerHeight() * 0.5)) + 'px',
+			height: (lineHeight - ($('.order').innerHeight() * 0.5)) + 'px',
 		});
 		function pathPrepare($el) {
 			var lineLength = $el[0].getTotalLength();
@@ -109,20 +120,22 @@ $(document).ready(function() {
 		var tween = new TimelineMax()
 			.add(TweenMax.to($theLine, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone}));
 
-		var scene = new ScrollMagic.Scene({triggerElement: '#no_plate_like_home', duration: '50%', tweenChanges: true})
+		var scene = new ScrollMagic.Scene({triggerElement: '#no_plate_like_home', duration: '80%', tweenChanges: true})
 			.setTween(tween)
 			// .addIndicators()
 			.addTo(controller);
+
+		var offsets = $('.order').innerHeight() * 0.5;
 
 		var orderToggle = new ScrollMagic.Scene({triggerElement: '#no_plate_like_home'})
 			.setClassToggle('.order', 'active')
 			// .addIndicators()
 			.addTo(controller);
-		var heatToggle = new ScrollMagic.Scene({triggerElement: '.heat', offset: -80 })
+		var heatToggle = new ScrollMagic.Scene({triggerElement: '.heat', offset: -offsets })
 			.setClassToggle('.heat', 'active')
 			// .addIndicators()
 			.addTo(controller);
-		var enjoyToggle = new ScrollMagic.Scene({triggerElement: '.enjoy', offset: -80})
+		var enjoyToggle = new ScrollMagic.Scene({triggerElement: '.enjoy', offset: -offsets})
 			.setClassToggle('.enjoy', 'active')
 			// .addIndicators()
 			.addTo(controller);

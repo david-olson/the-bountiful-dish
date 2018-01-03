@@ -12,15 +12,17 @@
 		echo word_count($excerpt, 20);
 		?></p>
 		<p class="price"><?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></p>
-		<div class="grid-x grid-padding-x align-middle">
-			<div class="shrink cell">
-				<a href="<?php the_permalink(); ?>" class="more-info">More Info</a>
-			</div>
-			<div class="auto cell">
-				<form action="/" class="add-to-cart cart">
-					<button data-quantity="1" data-product_id="<?php the_ID(); ?>" type="submit" class="button ajax_add_to_cart add_to_cart_button expanded" style="margin-bottom: 0;">Add To Cart</button>
-					<?php //Still need to create JS Function to Add to Cart ?>
-				</form>
+		<div class="button-wrap">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="shrink cell">
+					<a href="<?php the_permalink(); ?>" class="more-info">More Info</a>
+				</div>
+				<div class="auto cell">
+					<form action="/" class="add-to-cart cart">
+						<button data-quantity="1" data-product_id="<?php the_ID(); ?>" type="submit" class="button ajax_add_to_cart add_to_cart_button expanded" style="margin-bottom: 0;">Add To Cart</button>
+						<?php //Still need to create JS Function to Add to Cart ?>
+					</form>
+				</div>
 			</div>
 		</div>
 		

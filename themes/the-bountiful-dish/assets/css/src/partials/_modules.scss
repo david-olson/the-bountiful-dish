@@ -376,10 +376,41 @@ section.home-hero {
 	img.hero-left {
 		top: 0;
 		left: -100px;
+		@include breakpoint(medium down) {
+			left: -250px;
+		}
+		@media only screen and (max-width: 760px) {
+			display: block;
+			left: 50%; 
+			top: -400px;
+			transform: translateX(-50%) rotate(90deg) !important;
+		}
+		@include breakpoint(small down) {
+			top: -300px;
+		}
+		@media only screen and (max-width: 450px) {
+			display: none;		
+		}
 	}
 	img.hero-right {
 		top: 0;
 		right: -100px;
+		@include breakpoint(medium down) {
+			right: -250px;
+		}
+		@media only screen and (max-width: 760px) {
+			display: block;
+			right: 60%;
+			top: initial;
+			bottom: -500px ;
+			transform: translateX(50%) rotate(90deg) !important;
+		}
+		@include breakpoint(small down) {
+			bottom: -400px;
+		}
+		@media only screen and (max-width: 450px) {
+			display: none;	
+		}
 	}
 	.hero-health-happiness {
 		margin: 0 auto;
@@ -1038,6 +1069,7 @@ div.featured-meal-slider {
 	article {
 		box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
 		margin-bottom: $global-padding;
+		position: relative;
 		img {
 			width: 100%;
 		}
@@ -1059,6 +1091,13 @@ div.featured-meal-slider {
 			text-transform: uppercase;
 			color: $teal;
 			font-weight: bold;
+			padding-bottom: 40px;
+		}
+		div.button-wrap {
+			position: absolute;
+			left: 1rem;
+			right: 1rem;
+			bottom: 1rem;
 		}
 	}
 	ul.slick-dots {
@@ -1244,6 +1283,8 @@ section.btd-product-container {
 		box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
 		padding: 2*$global-padding $global-padding;
 		margin-bottom: $global-margin;
+		position: relative;
+		padding-bottom: 50px;
 		a {
 			h3 {
 				color: $black;
@@ -1258,11 +1299,47 @@ section.btd-product-container {
 			margin: 2px auto;
 			color: $dark-gray;
 		}
+		.button-wrap {
+			position: absolute;
+			bottom: 1rem;
+			left: 1rem;
+			right: 1rem;
+			// height: 50px;
+		}
 	}
 }
 
 .mission-hero, .blog-hero {
 	background-image: url('../../img/bg-mission-hero.jpg');
+}
+
+.mission-slider {
+	position: relative;
+	.slide {
+		min-height: 400px;
+	    background-size: cover;
+	    background-position: center center;
+	}
+	.slick-arrow {
+		position: absolute;
+		top: 50%; 
+		transform: translateY(-50%);
+		cursor: pointer;
+		padding: $global-padding;
+		background-color: rgba($black, 0.75);
+		z-index: 4;
+		transition: opacity ease-out 0.25s;
+		opacity: 0.4;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.slick-next {
+		right: 0;
+	}
+	.slick-prev {
+		left: 0;
+	}
 }
 
 .ingredients-hero {
@@ -1275,6 +1352,20 @@ section.meals-teaser {
 			background-color: $white;
 			box-shadow: 0px 5px 5px 0px rgba($black, 0.25);
 			padding: $global-padding;
+			position: relative;
+			.excerpt {
+				padding-bottom: 40px;
+			}
+			.button-wrap {
+				position: absolute;
+				bottom: 1rem;
+				left: 1rem;
+				right: 1rem;
+				// height: 50px;
+			}
+			@include breakpoint(small down) {
+				margin-bottom: $global-margin;
+			}
 		}
 	}
 }
@@ -1527,7 +1618,7 @@ section.related.products, section.up-sells {
 section.top-posts {
 	background-color: lighten($light-gray, 5%);
 	.white-bg {
-
+		position: relative;
 	}
 	.slick-slide {
 		margin: 0 $global-margin;
@@ -1550,6 +1641,18 @@ section.top-posts {
 		right: -60px;
 		transform: translateY(-50%);
 		cursor: pointer; 
+	}
+	article {
+		// position: relative;
+		.excerpt {
+			padding-bottom: 50px;
+		}
+		.button-wrap {
+			position: absolute;
+			left: 2rem;
+			bottom: 1rem;
+			right: 2rem;
+		}
 	}
 }
 

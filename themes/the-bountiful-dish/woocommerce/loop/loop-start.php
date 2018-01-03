@@ -19,4 +19,4 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="large-12 cell">
-			<div class="grid-x grid-padding-x large-up-3 medium-up-3 small-up-2 btd-products">
+			<div class="grid-x grid-padding-x large-up-3 medium-up-2 small-up-1 btd-products">
