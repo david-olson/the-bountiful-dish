@@ -97,6 +97,9 @@ gulp.task('vendorsJs', function() {
 						'./scrollmagic/minified/plugins/animation.gsap.min.js',
 						'./scrollmagic/minified/plugins/debug.addIndicators.min.js'
 					]
+				},
+				jquery: {
+					ignore: true
 				}
 			}
 		}))

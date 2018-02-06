@@ -21,6 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'before_shipping') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
@@ -53,6 +63,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php endif; ?>
 </div>
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'after_shipping') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 <div class="woocommerce-additional-fields">
 	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
@@ -64,11 +84,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php endif; ?>
 
+		<?php if (have_rows('messages', 'option')) : ?>
+			<?php while (have_rows('messages', 'option')) : the_row(); ?>
+				<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'before_notes') : ?>
+					<h3><?php the_sub_field('heading'); ?></h3>
+					<p><?php the_sub_field('message'); ?></p>
+				<?php else : ?>
+					<?php continue; ?>
+				<?php endif; ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+
 		<div class="woocommerce-additional-fields__field-wrapper">
 			<?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
 				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 			<?php endforeach; ?>
 		</div>
+
+		<?php if (have_rows('messages', 'option')) : ?>
+			<?php while (have_rows('messages', 'option')) : the_row(); ?>
+				<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'after_notes') : ?>
+					<h3><?php the_sub_field('heading'); ?></h3>
+					<p><?php the_sub_field('message'); ?></p>
+				<?php else : ?>
+					<?php continue; ?>
+				<?php endif; ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
 
 	<?php endif; ?>
 

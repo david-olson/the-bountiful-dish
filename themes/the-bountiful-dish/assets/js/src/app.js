@@ -190,5 +190,10 @@ $(document).ready(function() {
 			// .addIndicators()
 			.addTo(fadeFromRightController);
 		});
-	}	
+	}
+	$('input[name="wc_checkout_add_ons_2"]').change(function() {
+		$('body').trigger('update_checkout');
+		console.log('changed')
+
+	})
 });

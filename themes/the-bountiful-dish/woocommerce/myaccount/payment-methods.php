@@ -69,7 +69,6 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 	</table>
 
 <?php else : ?>
-
 	<p class="woocommerce-Message woocommerce-Message--info woocommerce-info"><?php esc_html_e( 'No saved methods found.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>
@@ -77,3 +76,5 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 <?php do_action( 'woocommerce_after_account_payment_methods', $has_methods ); ?>
 
 <a class="button" href="<?php echo esc_url( wc_get_endpoint_url( 'add-payment-method' ) ); ?>"><?php esc_html_e( 'Add payment method', 'woocommerce' ); ?></a>
+<hr>
+<p><small>Your credit card information is not stored at BountifulDish.com, but managed through our secure gateway provider <a href="https://www.authorize.net/company/whatwedo/">Authorize.net</a></small></p>

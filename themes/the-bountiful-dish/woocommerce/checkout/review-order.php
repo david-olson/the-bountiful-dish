@@ -20,7 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'before_summary') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
@@ -112,3 +121,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</tfoot>
 </table>
+
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'after_summary') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>

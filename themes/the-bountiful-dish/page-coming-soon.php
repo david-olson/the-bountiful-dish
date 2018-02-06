@@ -26,15 +26,13 @@
 		</header>
 	</div>
 
-	<section class="coming-soon-hero">
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/delivering-health-and-happiness.svg" />
-					<h1>No Commitment.<br />Change, Skip, or Cancel Anytime.</h1>
-				</div>
-			</div>
+	<section class="home-hero" id="home_hero">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
+		<div class="hero-health-happiness" id="hero_health_happiness">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-plate-hero.svg" alt="No Plate Like Home" />
+			<h2>No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
 		</div>
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">
 	</section>
 	<section class="coming-soon-sign-up-bar">
 		<div class="grid-x grid-padding-x align-middle">

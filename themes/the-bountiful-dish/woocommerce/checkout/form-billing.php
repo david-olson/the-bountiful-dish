@@ -23,6 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** @global WC_Checkout $checkout */
 
 ?>
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'before_billing') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 <div class="woocommerce-billing-fields">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
@@ -51,6 +61,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
+<?php if (have_rows('messages', 'option')) : ?>
+	<?php while (have_rows('messages', 'option')) : the_row(); ?>
+		<?php if (get_sub_field('display_on') == 'checkout' && get_sub_field('checkout_position') == 'after_billing') : ?>
+			<h3><?php the_sub_field('heading'); ?></h3>
+			<p><?php the_sub_field('message'); ?></p>
+		<?php else : ?>
+			<?php continue; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
 	<div class="woocommerce-account-fields">

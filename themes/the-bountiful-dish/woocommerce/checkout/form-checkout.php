@@ -68,6 +68,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div id="order_review" class="woocommerce-checkout-review-order">
 									<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 								</div>
+								<div>
+									<p><small>Your credit card information is not stored at BountifulDish.com, but managed through our secure gateway provider <a href="https://www.authorize.net/company/whatwedo/">Authorize.net</a></small></p>
+								</div>
 
 								<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 							</div>

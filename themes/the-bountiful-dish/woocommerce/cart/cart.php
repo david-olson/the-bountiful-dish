@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="grid-container">
 	<div class="grid-x grid-padding-x medium-pad">
 		<div class="large-12 cell">
+			
 			<?php 
 			wc_print_notices();
 
@@ -33,7 +34,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 				<?php do_action( 'woocommerce_before_cart_table' ); ?>
-
+				<?php if (have_rows('messages', 'option')) : ?>
+					<?php while (have_rows('messages', 'option')) : the_row(); ?>
+						<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'before_order') : ?>
+							<h3><?php the_sub_field('heading'); ?></h3>
+							<p><?php the_sub_field('message'); ?></p>
+						<?php else : ?>
+							<?php continue; ?>
+						<?php endif; ?>
+					<?php endwhile; ?>
+				<?php endif; ?>
 				<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 					<thead>
 						<tr>
@@ -130,8 +140,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 					</tbody>
 				</table>
+				<div class="text-right">
+					<input type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>" />
+				</div>
+				<?php if (have_rows('messages', 'option')) : ?>
+					<?php while (have_rows('messages', 'option')) : the_row(); ?>
+						<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'after_order') : ?>
+							<h3><?php the_sub_field('heading'); ?></h3>
+							<p><?php the_sub_field('message'); ?></p>
+						<?php else : ?>
+							<?php continue; ?>
+						<?php endif; ?>
+					<?php endwhile; ?>
+				<?php endif; ?>
 				<div class="grid-x grid-padding-x">
 					<div class="large-4 cell">
+						<?php if (have_rows('messages', 'option')) : ?>
+							<?php while (have_rows('messages', 'option')) : the_row(); ?>
+								<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'before_coupons') : ?>
+									<h3><?php the_sub_field('heading'); ?></h3>
+									<p><?php the_sub_field('message'); ?></p>
+								<?php else : ?>
+									<?php continue; ?>
+								<?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
 						<?php if ( wc_coupons_enabled() ) { ?>
 							<div class="coupon">
 								<label for="coupon_code"><?php _e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" />
@@ -139,13 +172,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						<?php } ?>
 
-						<input type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>" />
+						
 
 						<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 						<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+						<?php if (have_rows('messages', 'option')) : ?>
+							<?php while (have_rows('messages', 'option')) : the_row(); ?>
+								<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'after_coupons') : ?>
+									<h3><?php the_sub_field('heading'); ?></h3>
+									<p><?php the_sub_field('message'); ?></p>
+								<?php else : ?>
+									<?php continue; ?>
+								<?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
 					</div>
 					<div class="large-8 cell">
+						<?php if (have_rows('messages', 'option')) : ?>
+							<?php while (have_rows('messages', 'option')) : the_row(); ?>
+								<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'before_totals') : ?>
+									<h3><?php the_sub_field('heading'); ?></h3>
+									<p><?php the_sub_field('message'); ?></p>
+								<?php else : ?>
+									<?php continue; ?>
+								<?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
 						<div class="cart-collaterals">
 							<?php
 								/**
@@ -157,6 +210,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 							 	do_action( 'woocommerce_cart_collaterals' );
 							?>
 						</div>
+						<?php if (have_rows('messages', 'option')) : ?>
+							<?php while (have_rows('messages', 'option')) : the_row(); ?>
+								<?php if (get_sub_field('display_on') == 'cart' && get_sub_field('cart_position') == 'after_totals') : ?>
+									<h3><?php the_sub_field('heading'); ?></h3>
+									<p><?php the_sub_field('message'); ?></p>
+								<?php else : ?>
+									<?php continue; ?>
+								<?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
 					</div>
 				</div>
 				<?php do_action( 'woocommerce_after_cart_table' ); ?>

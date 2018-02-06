@@ -84,7 +84,7 @@ if ( ! function_exists( 'the_bountiful_dish_setup' ) ) :
 		if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 		function my_jquery_enqueue() {
 		   wp_deregister_script('jquery');
-		   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js", false, null);
+		   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", false, null);
 		   wp_enqueue_script('jquery');
 		}
 	}
@@ -436,4 +436,26 @@ if (function_exists('acf_add_options_page')) {
 		'icon_url' => 'dashicons-pressthis',
 		'position' => 5
 	));
+}
+
+// Edit WC Checkout Fields
+
+// Hook in
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Our hooked in function - $fields is passed via the filter!
+// Taxes are calculated based on your billing zip code
+function custom_override_checkout_fields( $fields ) {
+     $fields['billing']['billing_phone']['label'] = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" title="We ask for your phone number in case our delivery driver needs to call you">Phone</span>';
+     $fields['billing']['billing_email']['label'] = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" title="We will email you an order invoice">Email Address</span>';
+     $fields['billing']['billing_postcode']['label'] = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" title="Taxes are calculated based on your billing zip code">ZIP</span>';
+     return $fields;
+}
+
+add_action( 'after_setup_theme', 'yourtheme_setup' );
+ 
+function yourtheme_setup() {
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 }

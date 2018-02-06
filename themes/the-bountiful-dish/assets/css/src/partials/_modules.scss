@@ -394,9 +394,9 @@ section.home-hero {
 	}
 	img.hero-right {
 		top: 0;
-		right: -100px;
+		right: -140px;
 		@include breakpoint(medium down) {
-			right: -250px;
+			right: -280px;
 		}
 		@media only screen and (max-width: 760px) {
 			display: block;
@@ -420,6 +420,10 @@ section.home-hero {
 		// top: 50%;
 		// left: 50%;
 		// transform: translate(-50%, -50%);
+		img {
+			max-width: 400px;
+			margin-bottom: 60px;
+		}
 	}
 }
 
@@ -448,6 +452,7 @@ header.header {
 				text-transform: uppercase;
 				font-weight: 700;
 				color: $teal;
+				font-size: 0.85rem;
 				&.login {
 					color: $dark-gray;
 				}
@@ -1800,5 +1805,42 @@ section.coming-soon-sign-up-bar {
 		// margin-bottom: 0;
 		background-color: $white;
 		color: $teal;
+	}
+}
+
+// Authorize.net Payment Form
+
+div.payment_method_authorize_net_cim_credit_card {
+	p.form-row-first {
+	    display: inline-block;
+	    width: 48%;
+	    margin-right: 4%;
+	}
+	p.form-row-last {
+		display: inline-block;
+		width: 48%;
+	}	
+}
+
+p.woocommerce-Message.woocommerce-Message--info.woocommerce-info {
+	display: block;
+	background-color: $white;
+	color: $black;
+}
+
+// Store wide notice
+
+.woocommerce-demo-store {
+	padding-bottom: 100px;
+}
+
+p.demo_store {
+	background-color: $teal;
+	color: $white;
+	text-align: center;
+	font-size: 24px;
+	a {
+		color: $white;
+		text-decoration: underline;
 	}
 }
