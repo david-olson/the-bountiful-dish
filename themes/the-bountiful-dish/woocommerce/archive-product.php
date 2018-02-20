@@ -40,7 +40,7 @@ get_header( 'shop' ); ?>
 		?>
 		<div class="large-12 cell">
 			<ul class="menu expanded align-center filter-menu">
-				<li><a href="#all">All</a></li>
+				<li><a href="/menu">All</a></li>
 			<?php $i = 0; ?>
 			<?php foreach ($terms as $term) : ?>
 				<li><a href="<?php echo get_term_link($term->term_id);?>"><?php echo $term->name; ?></a></li>

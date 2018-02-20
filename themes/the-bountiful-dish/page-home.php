@@ -2,14 +2,16 @@
 
 <?php if (have_posts()) : ?>
 	<?php while(have_posts()) : the_post(); ?>
-
+		<?php $template_dir = get_template_directory_uri(); ?>
+		<?php $template_dir = str_replace(array('http://', 'https://'), '', $template_dir); ?>
 		<section class="home-hero" id="home_hero">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
+			<img src="https://i2.wp.com/www.<?php echo $template_dir; ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
 			<div class="hero-health-happiness" id="hero_health_happiness">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-plate-hero.svg" alt="No Plate Like Home" />
-				<h2>No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
+				<h2 class="margin-bottom">No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
+				<a href="/menu" class="button text-center">Start Shopping Now</a>
 			</div>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">
+			<img src="https://i2.wp.com/www.<?php echo $template_dir; ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">
 		</section>
 
 		<section class="cta-bar">
@@ -60,7 +62,7 @@
 					<div class="medium-8 cell">
 						<div class="grid-x grid-padding-x">
 							<div class="large-12 text-center cell">
-								<h2>There's no plate like home</h2>
+								<h2>There's no plate like home<sup>&trade;</sup></h2>
 							</div>
 						</div>
 						<div class="order grid-x grid-padding-x align-middle">

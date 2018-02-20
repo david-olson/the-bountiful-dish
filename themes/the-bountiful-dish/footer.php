@@ -54,7 +54,7 @@
 				</div>
 				<div class="large-3 cell">
 					<h3>Partner with Us</h3>
-					<p>The Bountiful Dish is more than just meals. We strive to make an impact in our community and would love to partner with you.</p>
+					<p>The Bountiful Dish<sup>&reg;</sup> is more than just meals. We strive to make an impact in our community and would love to partner with you.</p>
 					<a href="/media-inquiries" class="media" style="text-decoration: underline;">More Info</a>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 	<section class="sub-footer">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center"><p class="gray small-margin">&copy; 2017 The Bountiful Dish &bull; <a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/legal">Privacy Policy</a></p></div>
+				<div class="large-12 cell text-center"><p class="gray small-margin">&copy; 2017 The Bountiful Dish<sup>&reg;</sup> &bull; <a class="gray" href="/advertisers">Advertise With Us</a> &bull; <a class="gray" href="/legal">Privacy Policy</a></p></div>
 			</div>
 		</div>
 	</section>
