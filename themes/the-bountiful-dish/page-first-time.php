@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section class="hero interior mission-hero text-center">
-	<h1 class="script white">delivering health and happiness</h1>
+	<h1 class="white">Bountiful Dish is your Healthy Mealtime Companion</h1>
 </section>
 <?php if (have_posts()) : ?>
 	<div class="grid-container">
@@ -29,7 +29,7 @@
 						<div class="medium-8 cell">
 							<div class="grid-x grid-padding-x">
 								<div class="large-12 text-center cell">
-									<h2>There's no plate like home</h2>
+									<h2>There's no plate like home<sup>&trade;</sup></h2>
 								</div>
 							</div>
 							<div class="order grid-x grid-padding-x align-middle">

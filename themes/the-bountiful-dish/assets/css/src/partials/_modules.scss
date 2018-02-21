@@ -1491,6 +1491,14 @@ table.woocommerce-orders-table {
 	}
 }
 
+.shipping th {
+	width: 50%;
+}
+
+.fee th {
+	width: 50%;
+}
+
 .payment_method_square {
 	// @include xy-grid-container;
 	fieldset {
