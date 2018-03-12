@@ -13,16 +13,19 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-$template = get_option( 'template' );
+$template = wc_get_theme_slug_for_templates();
 
 switch ( $template ) {
+	case 'twentyten' :
+		echo '<div id="container"><div id="content" role="main">';
+		break;
 	case 'twentyeleven' :
 		echo '<div id="primary"><div id="content" role="main" class="twentyeleven">';
 		break;
@@ -45,6 +48,6 @@ switch ( $template ) {
 		echo '<main id="main" class="site-main"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="large-12 cell">';
 		break;
 	default :
-		echo '<div id="container"><div id="content" role="main">';
+		echo '<div id="primary" class="content-area"><main id="main" class="site-main" role="main">';
 		break;
 }

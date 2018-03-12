@@ -13,14 +13,16 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' );
+?>
+
 <section class="hero interior shop-hero">
 	
 	<div class="grid-container">
@@ -56,83 +58,83 @@ get_header( 'shop' ); ?>
 	
 	<div class="grid-x grid-padding-x">
 		<div class="large-12 cell">
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 * @hooked WC_Structured_Data::generate_website_data() - 30
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+<?php
 
-		<?php if ( have_posts() ) : ?>
+/**
+ * Hook: woocommerce_before_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+ * @hooked woocommerce_breadcrumb - 20
+ * @hooked WC_Structured_Data::generate_website_data() - 30
+ */
+do_action( 'woocommerce_before_main_content' );
 
-			<?php
-				/**
-				 * woocommerce_before_shop_loop hook.
-				 *
-				 * @hooked wc_print_notices - 10
-				 * @hooked woocommerce_result_count - 20
-				 * @hooked woocommerce_catalog_ordering - 30
-				 */
-				do_action( 'woocommerce_before_shop_loop' );
-			?>
+?>
 
-			<?php woocommerce_product_loop_start(); ?>
+<?php
 
-				<?php woocommerce_product_subcategories(); ?>
+if ( have_posts() ) {
 
-				<?php while ( have_posts() ) : the_post(); ?>
+	/**
+	 * Hook: woocommerce_before_shop_loop.
+	 *
+	 * @hooked wc_print_notices - 10
+	 * @hooked woocommerce_result_count - 20
+	 * @hooked woocommerce_catalog_ordering - 30
+	 */
+	do_action( 'woocommerce_before_shop_loop' );
 
-					<?php
-						/**
-						 * woocommerce_shop_loop hook.
-						 *
-						 * @hooked WC_Structured_Data::generate_product_data() - 10
-						 */
-						do_action( 'woocommerce_shop_loop' );
-					?>
+	woocommerce_product_loop_start();
 
-					<?php wc_get_template_part( 'content', 'product' ); ?>
+	if ( wc_get_loop_prop( 'total' ) ) {
+		while ( have_posts() ) {
+			the_post();
 
-				<?php endwhile; // end of the loop. ?>
+			/**
+			 * Hook: woocommerce_shop_loop.
+			 *
+			 * @hooked WC_Structured_Data::generate_product_data() - 10
+			 */
+			do_action( 'woocommerce_shop_loop' );
 
-			<?php woocommerce_product_loop_end(); ?>
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
 
-			<?php
-				/**
-				 * woocommerce_after_shop_loop hook.
-				 *
-				 * @hooked woocommerce_pagination - 10
-				 */
-				do_action( 'woocommerce_after_shop_loop' );
-			?>
+	woocommerce_product_loop_end();
 
-		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+	/**
+	 * Hook: woocommerce_after_shop_loop.
+	 *
+	 * @hooked woocommerce_pagination - 10
+	 */
+	do_action( 'woocommerce_after_shop_loop' );
+} else {
+	/**
+	 * Hook: woocommerce_no_products_found.
+	 *
+	 * @hooked wc_no_products_found - 10
+	 */
+	do_action( 'woocommerce_no_products_found' );
+}
 
-			<?php
-				/**
-				 * woocommerce_no_products_found hook.
-				 *
-				 * @hooked wc_no_products_found - 10
-				 */
-				do_action( 'woocommerce_no_products_found' );
-			?>
+/**
+ * Hook: woocommerce_after_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+ */
+do_action( 'woocommerce_after_main_content' );
 
-		<?php endif; ?>
+/**
+ * Hook: woocommerce_sidebar.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+//do_action( 'woocommerce_sidebar' ); ?>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
 </div>
 	</div>
 </div>
 </section>
-<?php get_footer( 'shop' ); ?>
+
+<?php get_footer( 'shop' );
