@@ -1808,6 +1808,29 @@ body.single-product {
 	}
 }
 
+table.variations {
+	tr {
+		vertical-align: top;
+		&:hover {
+			td {
+				background-color: #ffffff;	
+			}
+			
+		}
+	}
+}
+
+.woocommerce-variation-add-to-cart > .quantity {
+    width: 20%;
+    float: left;
+    margin-right: 20px;
+    &:after {
+    	content: '';
+    	clear: both;
+    	display: block;
+    }
+}
+
 
 // Coming Soon Page
 
