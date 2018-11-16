@@ -375,9 +375,9 @@ section.home-hero {
 	}
 	img.hero-left {
 		top: 0;
-		left: -100px;
+		left: -170px;
 		@include breakpoint(medium down) {
-			left: -250px;
+			left: -290px;
 		}
 		@media only screen and (max-width: 760px) {
 			display: block;
@@ -386,7 +386,7 @@ section.home-hero {
 			transform: translateX(-50%) rotate(90deg) !important;
 		}
 		@include breakpoint(small down) {
-			top: -300px;
+			top: -330px;
 		}
 		@media only screen and (max-width: 450px) {
 			display: none;		
@@ -394,7 +394,7 @@ section.home-hero {
 	}
 	img.hero-right {
 		top: 0;
-		right: -140px;
+		right: -200px;
 		@include breakpoint(medium down) {
 			right: -280px;
 		}

@@ -8,7 +8,7 @@
 			<img src="https://i2.wp.com/www.<?php echo $template_dir; ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
 			<div class="hero-health-happiness" id="hero_health_happiness">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-plate-hero.svg" alt="No Plate Like Home" />
-				<h2 class="margin-bottom">Delivering Raleigh &bull; Durham<br />Chapel Hill &bull; Cary &bull; NC Triangle</h2>
+				<h2 class="margin-bottom">Delivering to Raleigh, North Carolina</h2>
 				<a href="/menu" class="button text-center">Start Shopping Now</a>
 			</div>
 			<img src="https://i2.wp.com/www.<?php echo $template_dir; ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">

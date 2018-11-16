@@ -29,6 +29,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 <div class="cell">
 	<article <?php post_class(' match-height-all'); ?> id="menu-item-<?php the_ID(); ?>">
+		<?php /*
+
+		Remove post thumbnail for now.
+
 		<?php if (has_post_thumbnail()) : ?>
 			<a href="<?php the_permalink(); ?>">
 				<img src="<?php the_post_thumbnail_url('featured_meal'); ?>" alt="<?php the_title(); ?>">
@@ -38,6 +42,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/meal-fallback.png" alt="<?php the_title(); ?>">
 			</a>
 		<?php endif; ?>
+		*/ ?>
 		<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.

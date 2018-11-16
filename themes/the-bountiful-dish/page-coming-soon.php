@@ -13,14 +13,14 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'the-bountiful-dish' ); ?></a>
 
 	<div data-sticky-container>
-		<header class="header sticky" data-sticky data-margin-top="0" id="header">
+		<header class="header sticky medium-pad" data-sticky data-margin-top="0" id="header">
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-middle">
 					<div class="large-2 medium-3 small-6 cell">
 						<a href="/" alt="The Bountiful Dish"><?php get_template_part('assets/img/logo'); ?></a>
 					</div>
 					<div class="large-10 cell medium-9 small-6 text-right">
-						<a href="#form" class="button" data-smooth-scroll>Sign Up Now For Updates</a>
+						<a href="#form" class="button no-margin" data-smooth-scroll>Sign Up Now For Updates</a>
 					</div>
 			</div>
 		</header>
@@ -30,7 +30,7 @@
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-left.png" alt="" class="hero-left" id="hero_left">
 		<div class="hero-health-happiness" id="hero_health_happiness">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-plate-hero.svg" alt="No Plate Like Home" />
-			<h2>No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
+			<h2>Raleigh, North Carolina<br />No Commitment.<br />Change, Skip, or Cancel Anytime.</h2>
 		</div>
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-hero-right.png" alt="" class="hero-right" id="hero_right">
 	</section>
